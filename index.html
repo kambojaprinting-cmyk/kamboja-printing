@@ -505,7 +505,7 @@
     </div>
 
     <!-- Floating Admin Toggle Button -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div id="admin-toggle-wrapper" class="hidden fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
         <!-- Admin Active Badge Indicator -->
         <span id="admin-indicator" class="hidden bg-red-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg border border-red-400 animate-pulse tracking-wider uppercase">
             Admin Mode Aktif
@@ -516,6 +516,14 @@
             title="Masuk Mode Admin"
         >
             <i class="fa-solid fa-gear text-xl" id="admin-icon"></i>
+        </button>
+        <!-- Logout Admin Button (Hanya muncul saat admin aktif untuk menyembunyikan kembali tombol gerigi) -->
+        <button 
+            id="admin-logout-btn"
+            class="hidden bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-xl shadow-lg transition-all"
+            onclick="logoutAdmin()"
+        >
+            <i class="fa-solid fa-right-from-bracket"></i> Keluar Admin
         </button>
     </div>
 
@@ -562,9 +570,11 @@
 
         const addServiceBtn = document.getElementById('add-service-btn');
         const addPortfolioBtn = document.getElementById('add-portfolio-btn');
+        const adminToggleWrapper = document.getElementById('admin-toggle-wrapper');
         const adminToggleBtn = document.getElementById('admin-toggle-btn');
         const adminIcon = document.getElementById('admin-icon');
         const adminIndicator = document.getElementById('admin-indicator');
+        const adminLogoutBtn = document.getElementById('admin-logout-btn');
 
         // Modals DOM
         const serviceModal = document.getElementById('add-service-modal');
@@ -711,18 +721,38 @@
                 adminToggleBtn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
                 adminToggleBtn.classList.add('bg-red-500', 'hover:bg-red-600', 'rotate-45');
                 adminIndicator.classList.remove('hidden');
+                adminLogoutBtn.classList.remove('hidden');
                 addServiceBtn.classList.remove('hidden');
                 addPortfolioBtn.classList.remove('hidden');
             } else {
                 adminToggleBtn.classList.remove('bg-red-500', 'hover:bg-red-600', 'rotate-45');
                 adminToggleBtn.classList.add('bg-slate-900', 'hover:bg-slate-800');
                 adminIndicator.classList.add('hidden');
+                adminLogoutBtn.classList.add('hidden');
                 addServiceBtn.classList.add('hidden');
                 addPortfolioBtn.classList.add('hidden');
             }
             renderServices();
             renderPortfolios();
         });
+
+        // Fungsi khusus untuk keluar dari sistem Admin dan menyembunyikan tombol gerigi kembali
+        window.logoutAdmin = function() {
+            isAdminMode = false;
+            localStorage.removeItem('kamboja_admin_session');
+            adminToggleWrapper.classList.add('hidden');
+            adminIndicator.classList.add('hidden');
+            adminLogoutBtn.classList.add('hidden');
+            addServiceBtn.classList.add('hidden');
+            addPortfolioBtn.classList.add('hidden');
+            adminToggleBtn.classList.remove('bg-red-500', 'hover:bg-red-600', 'rotate-45');
+            adminToggleBtn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+            renderServices();
+            renderPortfolios();
+            
+            // Bersihkan parameter pencarian di URL agar kembali bersih
+            window.history.replaceState({}, document.title, window.location.pathname);
+        };
 
         // Jasa Modal Triggers
         addServiceBtn.addEventListener('click', () => serviceModal.classList.remove('hidden'));
@@ -850,6 +880,19 @@
 
         // Jalankan render awal saat website dimuat pertama kali
         window.onload = function() {
+            // Logika Cek Akses URL Rahasia Admin
+            const urlParams = new URLSearchParams(window.location.search);
+            const isSecretKeyMatched = urlParams.get('admin') === 'kambojamaju';
+            const hasAdminSession = localStorage.getItem('kamboja_admin_session') === 'active';
+
+            if (isSecretKeyMatched || hasAdminSession) {
+                // Simpan status login di browser pemilik agar tidak perlu ketik URL terus-menerus
+                localStorage.setItem('kamboja_admin_session', 'active');
+                adminToggleWrapper.classList.remove('hidden');
+            } else {
+                adminToggleWrapper.classList.add('hidden');
+            }
+
             renderServices();
             renderPortfolioFilters();
             renderPortfolios();
