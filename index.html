@@ -82,29 +82,28 @@
                     <span class="text-[10px] bg-blue-600 px-2 py-0.5 rounded font-mono">Tersimpan di Browser Anda</span>
                 </div>
 
-                <!-- FORM INPUT TOKEN -->
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
                     <div>
                         <label class="block text-gray-300 text-[11px] mb-1 font-semibold">1. GitHub Access Token</label>
-                        <input type="password" id="gh-token" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white outline-none focus:border-yellow-400" placeholder="Tempelkan Token (ghp_xxx)">
+                        <input type="password" id="gh-token" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white outline-none focus:border-yellow-400" placeholder="ghp_xxx">
                     </div>
                     <div>
                         <label class="block text-gray-300 text-[11px] mb-1 font-semibold">2. Username GitHub</label>
-                        <input type="text" id="gh-username" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white outline-none focus:border-yellow-400" placeholder="Username Anda">
+                        <input type="text" id="gh-username" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white outline-none focus:border-yellow-400" placeholder="Username">
                     </div>
                     <div>
                         <label class="block text-gray-300 text-[11px] mb-1 font-semibold">3. Nama Repository</label>
-                        <input type="text" id="gh-repo" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white outline-none focus:border-yellow-400" placeholder="Nama Repo">
+                        <input type="text" id="gh-repo" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white outline-none focus:border-yellow-400" placeholder="Repo Name">
                     </div>
                     <div>
                         <label class="block text-gray-300 text-[11px] mb-1 font-semibold">4. Folder SIMPAN (Direktori)</label>
-                        <input type="text" id="gh-dir" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white outline-none focus:border-yellow-400" placeholder="Contoh: upload/ atau images/">
+                        <input type="text" id="gh-dir" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white outline-none focus:border-yellow-400" placeholder="Contoh: images/">
                     </div>
                 </div>
 
                 <div class="flex justify-end pt-1">
                     <button onclick="saveGithubSettings()" class="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold text-xs px-5 py-2 rounded transition-colors flex items-center gap-2">
-                        <i class="fa-solid fa-floppy-disk"></i> Simpan Pengaturan Token & Direktori
+                        <i class="fa-solid fa-floppy-disk"></i> Simpan Pengaturan
                     </button>
                 </div>
             </div>
@@ -133,14 +132,11 @@
 
                     <div class="grid md:grid-cols-3 gap-6">
                         
-                        <!-- KARTU 1: CETAK FISIK -->
+                        <!-- KARTU 1: CETAK FISIK (Ubah nama file gambar sesuai foto di folder lokal Anda) -->
                         <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
                             <div class="space-y-4">
                                 <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('cetak-sablon')">
-                                    <img id="img-cover-cetak-sablon" src="" alt="Cetak & Sablon Fisik" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                    <button onclick="event.stopPropagation(); changeCoverImage('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
-                                    </button>
+                                    <img src="images/cetak-sablon-cover.jpg" alt="Cetak & Sablon Fisik" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                                 </div>
 
                                 <h3 class="text-center font-bold text-base text-gray-900">
@@ -167,10 +163,7 @@
                         <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
                             <div class="space-y-4">
                                 <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('desain-grafis')">
-                                    <img id="img-cover-desain-grafis" src="" alt="Desain Grafis Custom" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                    <button onclick="event.stopPropagation(); changeCoverImage('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
-                                    </button>
+                                    <img src="images/desain-grafis-cover.jpg" alt="Desain Grafis Custom" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                                 </div>
 
                                 <h3 class="text-center font-bold text-base text-gray-900">
@@ -197,10 +190,7 @@
                         <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
                             <div class="space-y-4">
                                 <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('produk-digital')">
-                                    <img id="img-cover-produk-digital" src="" alt="Produk Digital" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                    <button onclick="event.stopPropagation(); changeCoverImage('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
-                                    </button>
+                                    <img src="images/produk-digital-cover.jpg" alt="Produk Digital" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                                 </div>
 
                                 <h3 class="text-center font-bold text-base text-gray-900">
@@ -293,13 +283,11 @@
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- 7 KATEGORI FOTO LOKAL (Sesuaikan nama file gambarnya di folder images/ Anda) -->
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('sablon-kaos')">
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-sablon-kaos" src="" alt="Sablon Kaos" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); changeCoverImage('sablon-kaos')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
-                                </button>
+                                <img src="images/kaos.jpg" alt="Sablon Kaos" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             </div>
                             <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Sablon Kaos</h3>
@@ -314,10 +302,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('buku-yasin')">
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-buku-yasin" src="" alt="Buku Yasin" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); changeCoverImage('buku-yasin')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
-                                </button>
+                                <img src="images/yasin.jpg" alt="Buku Yasin" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             </div>
                             <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Buku Yasin</h3>
@@ -332,10 +317,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('sablon-karung')">
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-sablon-karung" src="" alt="Sablon Karung" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); changeCoverImage('sablon-karung')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
-                                </button>
+                                <img src="images/karung.jpg" alt="Sablon Karung" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             </div>
                             <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Sablon Karung</h3>
@@ -350,10 +332,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('stempel')">
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-stempel" src="" alt="Stempel Otomatis" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); changeCoverImage('stempel')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
-                                </button>
+                                <img src="images/stempel.jpg" alt="Stempel Otomatis" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             </div>
                             <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Stempel Otomatis</h3>
@@ -368,10 +347,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('bendera')">
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-bendera" src="" alt="Bendera Custom" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); changeCoverImage('bendera')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
-                                </button>
+                                <img src="images/bendera.jpg" alt="Bendera Custom" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             </div>
                             <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Bendera Custom</h3>
@@ -386,10 +362,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('promosi-reklame')">
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-promosi-reklame" src="" alt="Promosi & Reklame" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); changeCoverImage('promosi-reklame')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
-                                </button>
+                                <img src="images/reklame.jpg" alt="Promosi & Reklame" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             </div>
                             <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Promosi & Reklame</h3>
@@ -404,10 +377,7 @@
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('cetak-dokumen')">
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-cetak-dokumen" src="" alt="Print Dokumen" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); changeCoverImage('cetak-dokumen')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
-                                </button>
+                                <img src="images/dokumen.jpg" alt="Print Dokumen" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                             </div>
                             <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Print Dokumen</h3>
@@ -442,21 +412,21 @@
                     </div>
                 </div>
 
-                <!-- FORM UPLOAD FOTO SIMPLE (HANYA UPLOAD BISA LANGSUNG PUBLISH) -->
+                <!-- FORM UPLOAD FOTO TAMBAHAN DI GALERI -->
                 <div id="admin-upload-panel" class="hidden bg-white p-5 rounded-lg border border-blue-200 space-y-4 shadow-sm">
                     <h5 class="font-bold text-xs text-blue-900 flex items-center gap-2 border-b border-blue-100 pb-2">
-                        <i class="fa-solid fa-cloud-arrow-up text-sm"></i> Upload Foto Baru Ke Kategori Ini
+                        <i class="fa-solid fa-cloud-arrow-up text-sm"></i> Upload Foto Tambahan Ke Galeri Kategori Ini
                     </h5>
 
                     <form id="admin-add-form" class="space-y-4 text-xs font-medium">
                         <div>
-                            <label class="block text-gray-700 font-bold mb-1">Pilih File Foto (Langsung Diunggah ke GitHub):</label>
+                            <label class="block text-gray-700 font-bold mb-1">Pilih File Foto:</label>
                             <input type="file" id="add-file" accept="image/*" class="w-full border border-gray-300 rounded p-1.5 text-xs">
                         </div>
 
                         <div class="border-t border-gray-100 pt-3">
-                            <label class="block text-gray-700 font-bold mb-1">Atau Tempel Direct Link Gambar Luar:</label>
-                            <textarea id="add-urls" rows="2" class="w-full border border-gray-300 rounded p-2.5 outline-none focus:border-blue-500 font-mono text-[11px]" placeholder="https://i.postimg.cc/xxx/gambar.jpg"></textarea>
+                            <label class="block text-gray-700 font-bold mb-1">Atau Tempel Direct Link Gambar:</label>
+                            <textarea id="add-urls" rows="2" class="w-full border border-gray-300 rounded p-2.5 outline-none focus:border-blue-500 font-mono text-[11px]" placeholder="images/foto-tambahan.jpg"></textarea>
                         </div>
 
                         <div class="flex justify-end pt-2">
@@ -472,7 +442,7 @@
 
                 <div id="subpage-empty" class="hidden text-center py-16 bg-white rounded-xl border border-dashed border-gray-300 space-y-2">
                     <i class="fa-regular fa-images text-4xl text-gray-300"></i>
-                    <p class="text-xs text-gray-500 font-medium">Belum ada foto portofolio di kategori ini.</p>
+                    <p class="text-xs text-gray-500 font-medium">Belum ada foto portofolio tambahan di kategori ini.</p>
                 </div>
 
                 <div class="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -489,7 +459,7 @@
 
     </main>
 
-    <!-- TOMBOL PINTAS UNTUK AKTIFKAN MODE ADMIN DI POJOK BOTTOM RIGHT -->
+    <!-- TOMBOL PINTAS ADMIN -->
     <button onclick="toggleAdminMode()" class="fixed bottom-4 right-4 bg-slate-900 text-white hover:bg-black text-[11px] font-bold px-3 py-2 rounded-full shadow-2xl z-[90] flex items-center gap-2 border border-slate-700">
         <i class="fa-solid fa-user-shield text-yellow-400"></i> <span id="quick-admin-text">Login Admin</span>
     </button>
@@ -500,35 +470,9 @@
     </footer>
 
     <script>
-        const defaultCoverImages = {
-          "cetak-sablon": "https://i.postimg.cc/rpRXqv5q/Layanan-Cetak-Sablon.jpg",
-          "desain-grafis": "https://i.postimg.cc/5tQdfZ8x/Jasa-Desain.jpg",
-          "produk-digital": "https://i.postimg.cc/PqvsdB1h/Aneka-Produk-Digital-2.jpg",
-          "sablon-kaos": "https://i.postimg.cc/RFRY0NHh/thumbnail-sablon-kaos.jpg",
-          "buku-yasin": "https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing",
-          "sablon-karung": "https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing",
-          "stempel": "https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing",
-          "bendera": "https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing",
-          "promosi-reklame": "https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing",
-          "cetak-dokumen": "https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing"
-};
-
         const defaultPortfolios = [
-          {
-                    "id": 1784628936981,
-                    "category": "sablon-kaos",
-                    "title": "Hasil Sablon kaos Kamboja Printing",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784628932872_kaos-interior-3.png",
-                    "desc": "cotton"
-          },
-          {
-                    "id": 1784621471583,
-                    "category": "sablon-kaos",
-                    "title": "Hasil Sablon kaos Kamboja Printing",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784621467720_kaos-interior-1.png",
-                    "desc": "Bahan katun combed 30s"
-          }
-];
+            { id: 1, category: 'sablon-kaos', title: 'Galeri Sablon Kaos', image: 'images/kaos.jpg', desc: 'Portofolio Kamboja Printing' }
+        ];
 
         const categoriesMap = {
             'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
@@ -543,20 +487,7 @@
         };
 
         let portfolios = JSON.parse(localStorage.getItem('kamboja_p_data')) || defaultPortfolios;
-        let coverImages = JSON.parse(localStorage.getItem('kamboja_covers')) || defaultCoverImages;
         let currentCategory = 'home';
-
-        function loadCoverImages() {
-            Object.keys(coverImages).forEach(key => {
-                const imgElem = document.getElementById(`img-cover-${key}`);
-                if (imgElem) {
-                    imgElem.src = coverImages[key];
-                    imgElem.onerror = function() {
-                        this.src = 'https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';
-                    };
-                }
-            });
-        }
 
         async function updateHtmlOnGithub() {
             const saved = localStorage.getItem('kamboja_gh_config');
@@ -565,7 +496,7 @@
             if (!token || !username || !repo) return;
 
             try {
-                showToast('Menyinkronkan data publik ke GitHub...', 'success');
+                showToast('Menyinkronkan data galeri ke GitHub...', 'success');
                 const fileUrl = `https://api.github.com/repos/${username}/${repo}/contents/index.html`;
 
                 const getFileResponse = await fetch(fileUrl, {
@@ -578,11 +509,7 @@
                 const sha = fileData.sha;
 
                 let htmlContent = decodeURIComponent(escape(atob(fileData.content)));
-
-                const updatedCoverStr = `const defaultCoverImages = ${JSON.stringify(coverImages, null, 12)};`;
                 const updatedPortStr = `const defaultPortfolios = ${JSON.stringify(portfolios, null, 12)};`;
-
-                htmlContent = htmlContent.replace(/const defaultCoverImages = \{[\s\S]*?\};/, updatedCoverStr);
                 htmlContent = htmlContent.replace(/const defaultPortfolios = \[[\s\S]*?\];/, updatedPortStr);
 
                 const utf8Bytes = new TextEncoder().encode(htmlContent);
@@ -599,29 +526,17 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        message: 'Auto-sync update foto dari Admin Panel Kamboja Printing',
+                        message: 'Sync galeri portofolio dari Admin Panel',
                         content: encodedContent,
                         sha: sha
                     })
                 });
 
-                showToast('SUKSES! Data website publik telah diperbarui permanen!', 'success');
+                showToast('SUKSES! Galeri telah diperbarui.', 'success');
             } catch (err) {
-                console.error('Gagal Sinkronisasi GitHub HTML:', err);
-                showToast('Lokal tersimpan, tapi gagal sync HTML GitHub.', 'error');
+                console.error('Gagal Sync GitHub:', err);
             }
         }
-
-        window.changeCoverImage = async function(catKey) {
-            const newUrl = prompt('Masukkan Link Direct Foto baru:', coverImages[catKey] || '');
-            if (newUrl !== null && newUrl.trim() !== '') {
-                coverImages[catKey] = newUrl.trim();
-                localStorage.setItem('kamboja_covers', JSON.stringify(coverImages));
-                loadCoverImages();
-                showToast('Foto sampul berhasil diperbarui!', 'success');
-                await updateHtmlOnGithub();
-            }
-        };
 
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
@@ -632,7 +547,6 @@
             setTimeout(() => { toast.remove(); }, 3500);
         }
 
-        // FUNGSI NAVIGASI YANG MENDUKUNG TOMBOL BACK HP
         window.navigateTo = function(pageId, isBackAction = false) {
             currentCategory = pageId;
 
@@ -665,7 +579,6 @@
             checkAdminSession();
         };
 
-        // EVENT LISTENER TANGKAP TOMBOL BACK HP
         window.addEventListener('popstate', function(event) {
             if (event.state && event.state.page) {
                 navigateTo(event.state.page, true);
@@ -714,7 +627,7 @@
 
             const config = { token, username, repo, dir };
             localStorage.setItem('kamboja_gh_config', JSON.stringify(config));
-            showToast('Pengaturan Token & Direktori GitHub BERHASIL disimpan!', 'success');
+            showToast('Pengaturan GitHub berhasil disimpan!', 'success');
         }
 
         function loadGithubSettings() {
@@ -730,12 +643,8 @@
 
         async function uploadFileToGithub(file) {
             const saved = localStorage.getItem('kamboja_gh_config');
-            if(!saved) throw new Error("Isi Pengaturan GitHub (Token, Username, Repo) terlebih dahulu!");
+            if(!saved) throw new Error("Isi Pengaturan GitHub terlebih dahulu!");
             const { token, username, repo, dir } = JSON.parse(saved);
-
-            if(!token || !username || !repo) {
-                throw new Error("Token, Username, dan Repo GitHub wajib diisi pada panel atas!");
-            }
 
             const cleanDir = dir ? dir : '';
             const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
@@ -749,7 +658,6 @@
             });
 
             const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}`;
-
             const response = await fetch(apiUrl, {
                 method: 'PUT',
                 headers: {
@@ -757,7 +665,7 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    message: `Upload foto portofolio: ${fileName}`,
+                    message: `Upload foto: ${fileName}`,
                     content: base64Content
                 })
             });
@@ -767,10 +675,9 @@
                 throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
             }
 
-            return `https://cdn.jsdelivr.net/gh/${username}/${repo}@main/${filePath}`;
+            return `${cleanDir}${fileName}`;
         }
 
-        // FUNGSI SUBMIT UPLOAD TANPA MANDATORY JUDUL & DESKRIPSI
         document.getElementById('admin-add-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const submitBtn = document.getElementById('btn-submit-upload');
@@ -782,12 +689,12 @@
 
             try {
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-xs"></i> Memproses & Sync...`;
+                submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-xs"></i> Memproses...`;
 
                 if (fileInput.files.length > 0) {
-                    showToast('Mengunggah foto ke GitHub...', 'success');
-                    const githubPhotoUrl = await uploadFileToGithub(fileInput.files[0]);
-                    finalUrls.push(githubPhotoUrl);
+                    showToast('Mengunggah foto...', 'success');
+                    const githubPhotoPath = await uploadFileToGithub(fileInput.files[0]);
+                    finalUrls.push(githubPhotoPath);
                 }
 
                 if (rawUrls.trim() !== '') {
@@ -796,7 +703,7 @@
                 }
 
                 if (finalUrls.length === 0) {
-                    showToast('Pilih file foto ATAU masukkan URL link foto!', 'error');
+                    showToast('Pilih file foto ATAU masukkan path gambar!', 'error');
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up text-xs"></i> Publish Foto ke Galeri`;
                     return;
@@ -829,7 +736,7 @@
         });
 
         window.deletePhoto = async function(id) {
-            if (confirm('Hapus foto ini dari galeri portofolio?')) {
+            if (confirm('Hapus foto ini dari galeri?')) {
                 portfolios = portfolios.filter(p => p.id !== id);
                 localStorage.setItem('kamboja_p_data', JSON.stringify(portfolios));
                 showToast('Foto telah dihapus.', 'success');
@@ -843,14 +750,12 @@
             const logoutBtn = document.getElementById('admin-logout-btn');
             const adminGlobalConfig = document.getElementById('admin-global-config');
             const adminUploadPanel = document.getElementById('admin-upload-panel');
-            const adminEditBtns = document.querySelectorAll('.admin-edit-btn');
             const quickText = document.getElementById('quick-admin-text');
 
             if (isAdmin) {
                 logoutBtn.classList.remove('hidden');
                 logoutBtn.classList.add('inline-block');
                 adminGlobalConfig.classList.remove('hidden');
-                adminEditBtns.forEach(btn => btn.classList.remove('hidden'));
                 quickText.textContent = "Mode Admin (Keluar)";
 
                 if (currentCategory !== 'home' && currentCategory !== 'cetak-sablon') {
@@ -862,7 +767,6 @@
                 logoutBtn.classList.add('hidden');
                 adminGlobalConfig.classList.add('hidden');
                 adminUploadPanel.classList.add('hidden');
-                adminEditBtns.forEach(btn => btn.classList.add('hidden'));
                 quickText.textContent = "Login Admin";
             }
         }
@@ -891,7 +795,6 @@
         };
 
         window.onload = function() {
-            loadCoverImages();
             loadGithubSettings();
             
             const urlParams = new URLSearchParams(window.location.search);
