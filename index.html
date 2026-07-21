@@ -425,7 +425,7 @@
 
                         <div class="border-t border-gray-100 pt-3">
                             <label class="block text-gray-700 font-bold mb-1">Atau Tempel Direct Link Gambar:</label>
-                            <textarea id="add-urls" rows="2" class="w-full border border-gray-300 rounded p-2.5 outline-none focus:border-blue-500 font-mono text-[11px]" placeholder="images/foto-tambahan.jpg"></textarea>
+                            <textarea id="add-urls" rows="2" class="w-full border border-gray-300 rounded p-2.5 outline-none focus:border-blue-500 font-mono text-[11px]" placeholder="https://..."></textarea>
                         </div>
 
                         <div class="flex justify-end pt-2">
@@ -470,147 +470,8 @@
 
     <script>
         const defaultPortfolios = [
-          {
-                    "id": 1784650621769,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://i.postimg.cc/FK37NwTd/stempel-1.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784642089907,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784642086030_kaos-interior-2.png",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784642077062,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784642072793_kaos-interior-1.png",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784642050071,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784642048143_unnamed__15_.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784642039123,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784642037080_unnamed__14_.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784642023878,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784642021750_4.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641999043,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641996418_unnamed__4_.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641985588,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641980487_1781664582559.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641972407,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641967654_1781664582493.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641959105,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641954132_1781664582454.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641940800,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641933750_1781664582437.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641926356,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641923651_1781664582424.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641917335,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641914675_1781664582413.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641910160,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641905474_5.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641894583,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641892662_2.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641885912,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641883715_02.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641863971,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641858614_1.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641795255,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641792556_ssss.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641719055,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641715272_1781664582500.jpeg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784641673476,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784641669910_1781664582531.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          }
-];
+            { id: 1, category: 'sablon-kaos', title: 'Galeri Sablon Kaos', image: 'images/kaos.jpg', desc: 'Portofolio Kamboja Printing' }
+        ];
 
         const categoriesMap = {
             'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
@@ -813,7 +674,8 @@
                 throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
             }
 
-            return `${cleanDir}${fileName}`;
+            // PERBAIKAN UTAMA: Kembalikan URL Raw Publik GitHub yang valid
+            return `https://raw.githubusercontent.com/${username}/${repo}/main/${cleanDir}${fileName}`;
         }
 
         document.getElementById('admin-add-form').addEventListener('submit', async function(e) {
