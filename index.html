@@ -28,7 +28,7 @@
     <!-- Toast Notification -->
     <div id="toast-container" class="fixed top-6 right-6 z-[100] flex flex-col gap-3 max-w-sm w-full"></div>
 
-    <!-- MODAL FORM ADMIN (TIDAK HILANG SAAT PINDAH TAB) -->
+    <!-- MODAL FORM ADMIN -->
     <div id="admin-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 space-y-5 border border-gray-100">
             <div class="flex justify-between items-center border-b pb-3">
@@ -46,9 +46,8 @@
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700 mb-1">1. Direct Link Foto Baru (Postimages):</label>
+                    <label class="block font-bold text-gray-700 mb-1">Direct Link Foto Baru (Postimages):</label>
                     <input type="url" id="modal-image-url" required placeholder="https://i.postimg.cc/xxx/foto.jpg" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 outline-none">
-                    <p class="text-[10px] text-gray-500 mt-1">*Bebas buka tab Postimages kapan saja, form ini TIDAK akan hilang!</p>
                 </div>
 
                 <div class="border-t pt-3 space-y-3">
@@ -81,12 +80,11 @@
                 <span class="font-extrabold text-lg text-gray-900 tracking-tight">KAMBOJA <span class="text-blue-600">Printing</span></span>
             </a>
 
-            <!-- Menu Desktop & Mobile -->
             <nav class="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm font-semibold text-gray-600">
-                <button onclick="navigateTo('home')" class="hover:text-blue-600 px-2 py-1 rounded transition-colors">Beranda</button>
-                <button onclick="navigateTo('cetak-sablon')" class="hover:text-blue-600 px-2 py-1 rounded transition-colors">Cetak & Sablon</button>
-                <button onclick="navigateTo('desain-grafis')" class="hover:text-blue-600 px-2 py-1 rounded transition-colors">Desain</button>
-                <button onclick="navigateTo('produk-digital')" class="hover:text-blue-600 px-2 py-1 rounded transition-colors">Digital</button>
+                <button onclick="navigateTo('home')" class="hover:text-blue-600 px-2 py-1 rounded">Beranda</button>
+                <button onclick="navigateTo('cetak-sablon')" class="hover:text-blue-600 px-2 py-1 rounded">Cetak & Sablon</button>
+                <button onclick="navigateTo('desain-grafis')" class="hover:text-blue-600 px-2 py-1 rounded">Desain</button>
+                <button onclick="navigateTo('produk-digital')" class="hover:text-blue-600 px-2 py-1 rounded">Digital</button>
                 
                 <button id="admin-logout-btn" onclick="logoutAdmin()" class="hidden text-xs bg-red-100 text-red-600 hover:bg-red-200 px-2.5 py-1 rounded-md font-bold">
                     Logout Admin
@@ -109,53 +107,53 @@
                 <div class="max-w-6xl mx-auto px-4">
                     <div class="grid md:grid-cols-3 gap-6">
                         
-                        <!-- CARD 1 -->
-                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
+                        <!-- CARD 1: CETAK & SABLON FISIK -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50">
+                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50 cursor-pointer" onclick="navigateTo('cetak-sablon')">
                                     <img id="img-cover-cetak-sablon" src="" class="w-full h-full object-cover">
-                                    <button onclick="openAdminModal('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
+                                    <button onclick="event.stopPropagation(); openAdminModal('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-                                <h3 class="text-center font-bold text-lg text-gray-900">Cetak & Sablon Fisik</h3>
-                                <p class="text-xs text-gray-500 text-center">Layanan cetak stempel, sablon kaos, buku yasin, spanduk, dan brosur.</p>
+                                <h3 onclick="navigateTo('cetak-sablon')" class="text-center font-bold text-lg text-gray-900 cursor-pointer hover:text-blue-600">Layanan Cetak & Sablon Fisik</h3>
+                                <p class="text-xs text-gray-500 text-center">Sablon Kaos, Buku Yasin, Sablon Karung, Stempel, Bendera, Reklame, & Cetak Dokumen.</p>
                             </div>
-                            <button onclick="navigateTo('cetak-sablon')" class="w-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold py-2.5 rounded-xl text-xs text-center transition-colors">
+                            <button onclick="navigateTo('cetak-sablon')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs text-center shadow">
                                 Lihat Semua Layanan Cetak &rarr;
                             </button>
                         </div>
 
-                        <!-- CARD 2 -->
-                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
+                        <!-- CARD 2: DESAIN GRAFIS -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50">
+                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50 cursor-pointer" onclick="navigateTo('desain-grafis')">
                                     <img id="img-cover-desain-grafis" src="" class="w-full h-full object-cover">
-                                    <button onclick="openAdminModal('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
+                                    <button onclick="event.stopPropagation(); openAdminModal('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-                                <h3 class="text-center font-bold text-lg text-gray-900">Jasa Desain Grafis</h3>
-                                <p class="text-xs text-gray-500 text-center">Pembuatan logo profesional, kemasan produk, postingan media sosial, dan banner.</p>
+                                <h3 onclick="navigateTo('desain-grafis')" class="text-center font-bold text-lg text-gray-900 cursor-pointer hover:text-blue-600">Jasa Desain Grafis</h3>
+                                <p class="text-xs text-gray-500 text-center">Pembuatan logo profesional, kemasan produk, postingan sosmed, dan banner.</p>
                             </div>
-                            <button onclick="navigateTo('desain-grafis')" class="w-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold py-2.5 rounded-xl text-xs text-center transition-colors">
+                            <button onclick="navigateTo('desain-grafis')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs text-center shadow">
                                 Lihat Layanan Desain &rarr;
                             </button>
                         </div>
 
-                        <!-- CARD 3 -->
-                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
+                        <!-- CARD 3: PRODUK DIGITAL -->
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4 hover:shadow-md transition-shadow">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50">
+                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50 cursor-pointer" onclick="navigateTo('produk-digital')">
                                     <img id="img-cover-produk-digital" src="" class="w-full h-full object-cover">
-                                    <button onclick="openAdminModal('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
+                                    <button onclick="event.stopPropagation(); openAdminModal('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-                                <h3 class="text-center font-bold text-lg text-gray-900">Produk Digital</h3>
+                                <h3 onclick="navigateTo('produk-digital')" class="text-center font-bold text-lg text-gray-900 cursor-pointer hover:text-blue-600">Produk Digital</h3>
                                 <p class="text-xs text-gray-500 text-center">Undangan digital interaktif, website profil usaha, serta template siap pakai.</p>
                             </div>
-                            <button onclick="navigateTo('produk-digital')" class="w-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold py-2.5 rounded-xl text-xs text-center transition-colors">
+                            <button onclick="navigateTo('produk-digital')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-xl text-xs text-center shadow">
                                 Lihat Produk Digital &rarr;
                             </button>
                         </div>
@@ -165,38 +163,101 @@
             </div>
         </section>
 
-        <!-- ================= HALAMAN 2: CETAK & SABLON ================= -->
+        <!-- ================= HALAMAN 2: CETAK & SABLON (7 KATEGORI LENGKAP) ================= -->
         <section id="view-cetak-sablon" class="page-view py-10">
             <div class="max-w-6xl mx-auto px-4 space-y-6">
                 <div class="flex items-center justify-between border-b pb-4">
-                    <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Kategori Cetak & Sablon</h1>
+                    <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Layanan Cetak & Sablon Fisik</h1>
                     <button onclick="navigateTo('home')" class="text-xs text-blue-600 font-bold hover:underline">&larr; Kembali ke Beranda</button>
                 </div>
 
+                <!-- LIST 7 KATEGORI SESUAI LAMPIRAN FOTO -->
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3">
-                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden">
+                    
+                    <!-- 1. Sablon Kaos -->
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3 hover:shadow-md transition">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden cursor-pointer" onclick="openGallery('Sablon Kaos')">
                             <img id="img-cover-sablon-kaos" src="" class="w-full h-full object-cover">
-                            <button onclick="openAdminModal('sablon-kaos')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
+                            <button onclick="event.stopPropagation(); openAdminModal('sablon-kaos')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
                         </div>
-                        <h3 class="font-bold text-gray-900">Sablon Kaos Custom</h3>
+                        <h3 onclick="openGallery('Sablon Kaos')" class="font-bold text-gray-900 cursor-pointer hover:text-blue-600">Sablon Kaos</h3>
+                        <button onclick="openGallery('Sablon Kaos')" class="w-full bg-gray-100 hover:bg-blue-50 text-blue-600 font-bold py-2 rounded-lg text-xs">
+                            <i class="fa-solid fa-images mr-1"></i> Lihat Galeri Hasil Kerja
+                        </button>
                     </div>
 
-                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3">
-                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden">
+                    <!-- 2. Buku Yasin -->
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3 hover:shadow-md transition">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden cursor-pointer" onclick="openGallery('Buku Yasin')">
                             <img id="img-cover-buku-yasin" src="" class="w-full h-full object-cover">
-                            <button onclick="openAdminModal('buku-yasin')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
+                            <button onclick="event.stopPropagation(); openAdminModal('buku-yasin')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
                         </div>
-                        <h3 class="font-bold text-gray-900">Cetak Buku Yasin</h3>
+                        <h3 onclick="openGallery('Buku Yasin')" class="font-bold text-gray-900 cursor-pointer hover:text-blue-600">Buku Yasin</h3>
+                        <button onclick="openGallery('Buku Yasin')" class="w-full bg-gray-100 hover:bg-blue-50 text-blue-600 font-bold py-2 rounded-lg text-xs">
+                            <i class="fa-solid fa-images mr-1"></i> Lihat Galeri Hasil Kerja
+                        </button>
                     </div>
 
-                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3">
-                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden">
-                            <img id="img-cover-stempel" src="" class="w-full h-full object-cover">
-                            <button onclick="openAdminModal('stempel')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
+                    <!-- 3. Sablon Karung -->
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3 hover:shadow-md transition">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden cursor-pointer" onclick="openGallery('Sablon Karung')">
+                            <img id="img-cover-sablon-karung" src="" class="w-full h-full object-cover">
+                            <button onclick="event.stopPropagation(); openAdminModal('sablon-karung')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
                         </div>
-                        <h3 class="font-bold text-gray-900">Stempel Otomatis / Flash</h3>
+                        <h3 onclick="openGallery('Sablon Karung')" class="font-bold text-gray-900 cursor-pointer hover:text-blue-600">Sablon Karung</h3>
+                        <button onclick="openGallery('Sablon Karung')" class="w-full bg-gray-100 hover:bg-blue-50 text-blue-600 font-bold py-2 rounded-lg text-xs">
+                            <i class="fa-solid fa-images mr-1"></i> Lihat Galeri Hasil Kerja
+                        </button>
                     </div>
+
+                    <!-- 4. Stempel -->
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3 hover:shadow-md transition">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden cursor-pointer" onclick="openGallery('Stempel')">
+                            <img id="img-cover-stempel" src="" class="w-full h-full object-cover">
+                            <button onclick="event.stopPropagation(); openAdminModal('stempel')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
+                        </div>
+                        <h3 onclick="openGallery('Stempel')" class="font-bold text-gray-900 cursor-pointer hover:text-blue-600">Stempel Otomatis / Flash</h3>
+                        <button onclick="openGallery('Stempel')" class="w-full bg-gray-100 hover:bg-blue-50 text-blue-600 font-bold py-2 rounded-lg text-xs">
+                            <i class="fa-solid fa-images mr-1"></i> Lihat Galeri Hasil Kerja
+                        </button>
+                    </div>
+
+                    <!-- 5. Bendera -->
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3 hover:shadow-md transition">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden cursor-pointer" onclick="openGallery('Bendera')">
+                            <img id="img-cover-bendera" src="" class="w-full h-full object-cover">
+                            <button onclick="event.stopPropagation(); openAdminModal('bendera')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
+                        </div>
+                        <h3 onclick="openGallery('Bendera')" class="font-bold text-gray-900 cursor-pointer hover:text-blue-600">Bendera</h3>
+                        <button onclick="openGallery('Bendera')" class="w-full bg-gray-100 hover:bg-blue-50 text-blue-600 font-bold py-2 rounded-lg text-xs">
+                            <i class="fa-solid fa-images mr-1"></i> Lihat Galeri Hasil Kerja
+                        </button>
+                    </div>
+
+                    <!-- 6. Promosi & Reklame -->
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3 hover:shadow-md transition">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden cursor-pointer" onclick="openGallery('Promosi & Reklame')">
+                            <img id="img-cover-promosi-reklame" src="" class="w-full h-full object-cover">
+                            <button onclick="event.stopPropagation(); openAdminModal('promosi-reklame')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
+                        </div>
+                        <h3 onclick="openGallery('Promosi & Reklame')" class="font-bold text-gray-900 cursor-pointer hover:text-blue-600">Promosi & Reklame</h3>
+                        <button onclick="openGallery('Promosi & Reklame')" class="w-full bg-gray-100 hover:bg-blue-50 text-blue-600 font-bold py-2 rounded-lg text-xs">
+                            <i class="fa-solid fa-images mr-1"></i> Lihat Galeri Hasil Kerja
+                        </button>
+                    </div>
+
+                    <!-- 7. Cetak Dokumen -->
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3 hover:shadow-md transition">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden cursor-pointer" onclick="openGallery('Cetak Dokumen')">
+                            <img id="img-cover-cetak-dokumen" src="" class="w-full h-full object-cover">
+                            <button onclick="event.stopPropagation(); openAdminModal('cetak-dokumen')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
+                        </div>
+                        <h3 onclick="openGallery('Cetak Dokumen')" class="font-bold text-gray-900 cursor-pointer hover:text-blue-600">Cetak Dokumen</h3>
+                        <button onclick="openGallery('Cetak Dokumen')" class="w-full bg-gray-100 hover:bg-blue-50 text-blue-600 font-bold py-2 rounded-lg text-xs">
+                            <i class="fa-solid fa-images mr-1"></i> Lihat Galeri Hasil Kerja
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -208,10 +269,10 @@
                     <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Layanan Desain Grafis</h1>
                     <button onclick="navigateTo('home')" class="text-xs text-blue-600 font-bold hover:underline">&larr; Kembali ke Beranda</button>
                 </div>
-                <div class="bg-white p-8 rounded-2xl border text-center space-y-3">
+                <div class="bg-white p-8 rounded-2xl border text-center space-y-3 shadow-sm">
                     <i class="fa-solid fa-palette text-4xl text-blue-600"></i>
                     <h3 class="font-bold text-lg text-gray-800">Jasa Desain Profesional</h3>
-                    <p class="text-xs text-gray-500 max-w-md mx-auto">Kami melayani pembuatan desain logo, kemasan produk, feeds Instagram, banner promosi, dan kebutuhan branding lainnya.</p>
+                    <p class="text-xs text-gray-500 max-w-md mx-auto">Kami melayani pembuatan desain logo, kemasan produk, feeds Instagram, banner promosi, dan branding usaha.</p>
                 </div>
             </div>
         </section>
@@ -223,10 +284,27 @@
                     <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Kategori Produk Digital</h1>
                     <button onclick="navigateTo('home')" class="text-xs text-blue-600 font-bold hover:underline">&larr; Kembali ke Beranda</button>
                 </div>
-                <div class="bg-white p-8 rounded-2xl border text-center space-y-3">
+                <div class="bg-white p-8 rounded-2xl border text-center space-y-3 shadow-sm">
                     <i class="fa-solid fa-laptop-code text-4xl text-blue-600"></i>
                     <h3 class="font-bold text-lg text-gray-800">Produk Digital & Website</h3>
                     <p class="text-xs text-gray-500 max-w-md mx-auto">Kami menyediakan pembuatan website UMKM, undangan digital interaktif, dan aset grafis digital.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN 5: GALERI FOTO HASIL KERJA ================= -->
+        <section id="view-gallery" class="page-view py-10">
+            <div class="max-w-6xl mx-auto px-4 space-y-6">
+                <div class="flex items-center justify-between border-b pb-4">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase">Galeri Portofolio</span>
+                        <h1 id="gallery-title" class="text-xl sm:text-2xl font-extrabold text-gray-900">Hasil Kerja</h1>
+                    </div>
+                    <button onclick="navigateTo('cetak-sablon')" class="text-xs text-blue-600 font-bold hover:underline">&larr; Kembali ke Cetak & Sablon</button>
+                </div>
+
+                <div id="gallery-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Foto galeri dimuat di sini lewat JavaScript -->
                 </div>
             </div>
         </section>
@@ -239,14 +317,18 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // LINK GAMBAR DEFAULTS
+        // LINK DEFAULT FOTO COVER KATEGORI
         const defaultCoverImages = {
             'cetak-sablon': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
             'desain-grafis': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
             'produk-digital': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
             'sablon-kaos': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
             'buku-yasin': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
-            'stempel': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg'
+            'sablon-karung': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
+            'stempel': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
+            'bendera': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
+            'promosi-reklame': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
+            'cetak-dokumen': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg'
         };
 
         // RENDER GAMBAR
@@ -257,7 +339,7 @@
             });
         }
 
-        // FUNGSI NAVIGASI HALAMAN (MENU LINK)
+        // FUNGSI NAVIGASI HALAMAN
         function navigateTo(pageId) {
             document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
             const target = document.getElementById(`view-${pageId}`);
@@ -268,15 +350,31 @@
             checkAdminSession();
         }
 
+        // BUKA GALERI HASIL KERJA
+        function openGallery(categoryName) {
+            document.getElementById('gallery-title').innerText = `Hasil Kerja: ${categoryName}`;
+            const container = document.getElementById('gallery-container');
+            
+            // Contoh sampel foto hasil kerja
+            container.innerHTML = `
+                <div class="bg-white border rounded-xl overflow-hidden shadow-sm p-3">
+                    <img src="https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg" class="w-full h-56 object-cover rounded-lg">
+                    <p class="text-xs font-bold text-gray-800 mt-2">${categoryName} - Sample Project #1</p>
+                </div>
+                <div class="bg-white border rounded-xl overflow-hidden shadow-sm p-3">
+                    <img src="https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg" class="w-full h-56 object-cover rounded-lg">
+                    <p class="text-xs font-bold text-gray-800 mt-2">${categoryName} - Sample Project #2</p>
+                </div>
+            `;
+            navigateTo('gallery');
+        }
+
         // BUKA MODAL ADMIN
         function openAdminModal(catKey) {
             document.getElementById('modal-category-key').value = catKey;
             document.getElementById('modal-category-display').value = catKey.toUpperCase();
-            
-            // Auto-fill token dari localstorage
             document.getElementById('modal-gh-token').value = localStorage.getItem('gh_token') || '';
             document.getElementById('modal-image-url').value = '';
-
             document.getElementById('admin-modal').classList.remove('hidden');
         }
 
@@ -297,7 +395,6 @@
                 return;
             }
 
-            // Simpan token di memori browser
             localStorage.setItem('gh_token', token);
 
             const btn = document.getElementById('btn-save-modal');
@@ -315,7 +412,6 @@
                 const fileData = await getRes.json();
                 let content = decodeURIComponent(escape(atob(fileData.content)));
 
-                // Update link gambar pada file HTML
                 const regex = new RegExp(`'${catKey}':\\s*'[^']+'`);
                 content = content.replace(regex, `'${catKey}': '${newUrl}'`);
 
@@ -333,11 +429,11 @@
                 });
 
                 if (putRes.ok) {
-                    showToast("BERHASIL! Foto ter-publish ke seluruh pengunjung web.", "success");
+                    showToast("BERHASIL! Foto ter-publish ke publik.", "success");
                     closeAdminModal();
                     setTimeout(() => location.reload(), 1500);
                 } else {
-                    throw new Error("Gagal meng-update ke GitHub. Cek Token Anda.");
+                    throw new Error("Gagal meng-update ke GitHub.");
                 }
 
             } catch (err) {
@@ -371,7 +467,6 @@
             location.reload();
         }
 
-        // INIT SAAT HALAMAN DIMUAT
         window.onload = function() {
             loadCoverImages();
             const urlParams = new URLSearchParams(window.location.search);
