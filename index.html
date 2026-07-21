@@ -458,7 +458,7 @@
 
     </main>
 
-    <!-- TOMBOL PINTAS ADMIN (DISEMBUNYIKAN DI URL UTAMA / TAMPIL BERSIH) -->
+    <!-- TOMBOL PINTAS ADMIN -->
     <button id="admin-trigger-btn" onclick="toggleAdminMode()" class="hidden fixed bottom-4 right-4 bg-slate-900 text-white hover:bg-black text-[11px] font-bold px-3 py-2 rounded-full shadow-2xl z-[90] items-center gap-2 border border-slate-700">
         <i class="fa-solid fa-user-shield text-yellow-400"></i> <span id="quick-admin-text">Login Admin</span>
     </button>
@@ -469,36 +469,16 @@
     </footer>
 
     <script>
+        // DAFTAR DEFAULT SEMUA PORTOFOLIO AWAL (MULTI-KATEGORI)
         const defaultPortfolios = [
-          {
-                    "id": 1784651500128,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/folder/1784651497736_stempel_3.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784651484372,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/folder/1784651481665_stempel_2.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784651467278,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/folder/1784651464635_stempel_1.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "images/kaos.jpg",
-                    "desc": "Portofolio Kamboja Printing"
-          }
-];
+            { id: 1, category: 'sablon-kaos', title: 'Galeri Sablon Kaos', image: 'images/kaos.jpg', desc: 'Portofolio Kamboja Printing' },
+            { id: 2, category: 'stempel', title: 'Galeri Stempel Otomatis', image: 'images/stempel.jpg', desc: 'Portofolio Kamboja Printing' },
+            { id: 3, category: 'buku-yasin', title: 'Galeri Buku Yasin & Tahlil', image: 'images/yasin.jpg', desc: 'Portofolio Kamboja Printing' },
+            { id: 4, category: 'sablon-karung', title: 'Galeri Sablon Karung', image: 'images/karung.jpg', desc: 'Portofolio Kamboja Printing' },
+            { id: 5, category: 'bendera', title: 'Galeri Bendera Custom', image: 'images/bendera.jpg', desc: 'Portofolio Kamboja Printing' },
+            { id: 6, category: 'promosi-reklame', title: 'Galeri Promosi & Reklame', image: 'images/reklame.jpg', desc: 'Portofolio Kamboja Printing' },
+            { id: 7, category: 'cetak-dokumen', title: 'Galeri Print Dokumen & Kantor', image: 'images/dokumen.jpg', desc: 'Portofolio Kamboja Printing' }
+        ];
 
         const categoriesMap = {
             'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
@@ -512,6 +492,7 @@
             'produk-digital': { title: 'Katalog Produk Digital', desc: 'Template desain, ebook panduan, dan aset grafis siap pakai.' }
         };
 
+        // AMBIL DARI LOCALSTORAGE DENGAN AMAN TANPA MENIMPA ARRAY LAIN
         let portfolios = JSON.parse(localStorage.getItem('kamboja_p_data')) || defaultPortfolios;
         let currentCategory = 'home';
 
@@ -701,7 +682,6 @@
                 throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
             }
 
-            // PERBAIKAN UTAMA: Kembalikan URL Raw Publik GitHub yang valid
             return `https://raw.githubusercontent.com/${username}/${repo}/main/${cleanDir}${fileName}`;
         }
 
