@@ -104,11 +104,9 @@
                         <!-- KARTU 1: CETAK FISIK -->
                         <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square">
-                                    <a href="javascript:void(0)" onclick="navigateTo('cetak-sablon')" class="block w-full h-full">
-                                        <img id="img-cover-cetak-sablon" src="" alt="Cetak & Sablon Fisik" class="w-full h-full object-cover">
-                                    </a>
-                                    <button onclick="changeCoverImage('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('cetak-sablon')">
+                                    <img id="img-cover-cetak-sablon" src="" alt="Cetak & Sablon Fisik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <button onclick="event.stopPropagation(); changeCoverImage('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto Imgur
                                     </button>
                                 </div>
@@ -136,11 +134,9 @@
                         <!-- KARTU 2: DESAIN GRAFIS -->
                         <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square">
-                                    <a href="javascript:void(0)" onclick="navigateTo('desain-grafis')" class="block w-full h-full">
-                                        <img id="img-cover-desain-grafis" src="" alt="Desain Grafis Custom" class="w-full h-full object-cover">
-                                    </a>
-                                    <button onclick="changeCoverImage('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('desain-grafis')">
+                                    <img id="img-cover-desain-grafis" src="" alt="Desain Grafis Custom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <button onclick="event.stopPropagation(); changeCoverImage('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto Imgur
                                     </button>
                                 </div>
@@ -168,11 +164,9 @@
                         <!-- KARTU 3: PRODUK DIGITAL -->
                         <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square">
-                                    <a href="javascript:void(0)" onclick="navigateTo('produk-digital')" class="block w-full h-full">
-                                        <img id="img-cover-produk-digital" src="" alt="Produk Digital" class="w-full h-full object-cover">
-                                    </a>
-                                    <button onclick="changeCoverImage('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('produk-digital')">
+                                    <img id="img-cover-produk-digital" src="" alt="Produk Digital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <button onclick="event.stopPropagation(); changeCoverImage('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto Imgur
                                     </button>
                                 </div>
@@ -291,141 +285,141 @@
                 <div class="space-y-1 border-b border-gray-200 pb-4">
                     <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900">Layanan Cetak & Sablon Fisik</h1>
                     <p class="text-xs md:text-sm text-gray-600 max-w-3xl">
-                        Klik pada salah satu kategori di bawah ini untuk melihat **Galeri Foto Portofolio** pengerjaan Kamboja Printing.
+                        Klik pada foto atau judul kategori di bawah untuk langsung melihat **Galeri Photo Hasil Kerja** Kamboja Printing.
                     </p>
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     
                     <!-- 1. Sablon Kaos -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('sablon-kaos')">
                         <div>
-                            <div class="h-44 bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
                                 <img id="img-cover-sablon-kaos" src="" alt="Sablon Kaos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="changeCoverImage('sablon-kaos')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
+                                <button onclick="event.stopPropagation(); changeCoverImage('sablon-kaos')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
                                     <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
                                 </button>
                             </div>
-                            <div onclick="navigateTo('sablon-kaos')" class="p-5 space-y-2 cursor-pointer">
+                            <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Sablon Kaos</h3>
                                 <p class="text-xs text-gray-500 leading-relaxed">Sablon Plastisol & DTF kualitas distro pada bahan Cotton Combed adem.</p>
                             </div>
                         </div>
-                        <div onclick="navigateTo('sablon-kaos')" class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1 cursor-pointer">
+                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
                             Buka Galeri Photo Kaos <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
                     </div>
 
                     <!-- 2. Buku Yasin -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('buku-yasin')">
                         <div>
-                            <div class="h-44 bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
                                 <img id="img-cover-buku-yasin" src="" alt="Buku Yasin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="changeCoverImage('buku-yasin')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
+                                <button onclick="event.stopPropagation(); changeCoverImage('buku-yasin')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
                                     <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
                                 </button>
                             </div>
-                            <div onclick="navigateTo('buku-yasin')" class="p-5 space-y-2 cursor-pointer">
+                            <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Buku Yasin</h3>
                                 <p class="text-xs text-gray-500 leading-relaxed">Cetak Buku Yasin & Tahlil hardcover bludru sutra, poli emas mengkilap.</p>
                             </div>
                         </div>
-                        <div onclick="navigateTo('buku-yasin')" class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1 cursor-pointer">
+                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
                             Buka Galeri Photo Yasin <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
                     </div>
 
                     <!-- 3. Sablon Karung -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('sablon-karung')">
                         <div>
-                            <div class="h-44 bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
                                 <img id="img-cover-sablon-karung" src="" alt="Sablon Karung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="changeCoverImage('sablon-karung')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
+                                <button onclick="event.stopPropagation(); changeCoverImage('sablon-karung')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
                                     <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
                                 </button>
                             </div>
-                            <div onclick="navigateTo('sablon-karung')" class="p-5 space-y-2 cursor-pointer">
+                            <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Sablon Karung</h3>
                                 <p class="text-xs text-gray-500 leading-relaxed">Sablon logo dan merek cetak karung beras, tepung, atau pakan ternak.</p>
                             </div>
                         </div>
-                        <div onclick="navigateTo('sablon-karung')" class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1 cursor-pointer">
+                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
                             Buka Galeri Photo Karung <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
                     </div>
 
                     <!-- 4. Stempel Otomatis -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('stempel')">
                         <div>
-                            <div class="h-44 bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
                                 <img id="img-cover-stempel" src="" alt="Stempel Otomatis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="changeCoverImage('stempel')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
+                                <button onclick="event.stopPropagation(); changeCoverImage('stempel')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
                                     <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
                                 </button>
                             </div>
-                            <div onclick="navigateTo('stempel')" class="p-5 space-y-2 cursor-pointer">
+                            <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Stempel Otomatis</h3>
                                 <p class="text-xs text-gray-500 leading-relaxed">Stempel flash tanpa bantalan, praktis dan tajam. Tersedia berbagai ukuran.</p>
                             </div>
                         </div>
-                        <div onclick="navigateTo('stempel')" class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1 cursor-pointer">
+                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
                             Buka Galeri Photo Stempel <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
                     </div>
 
                     <!-- 5. Bendera Custom -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('bendera')">
                         <div>
-                            <div class="h-44 bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
                                 <img id="img-cover-bendera" src="" alt="Bendera Custom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="changeCoverImage('bendera')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
+                                <button onclick="event.stopPropagation(); changeCoverImage('bendera')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
                                     <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
                                 </button>
                             </div>
-                            <div onclick="navigateTo('bendera')" class="p-5 space-y-2 cursor-pointer">
+                            <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Bendera Custom</h3>
                                 <p class="text-xs text-gray-500 leading-relaxed">Cetak bendera kain sublimasi anti pudar untuk organisasi & suporter.</p>
                             </div>
                         </div>
-                        <div onclick="navigateTo('bendera')" class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1 cursor-pointer">
+                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
                             Buka Galeri Photo Bendera <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
                     </div>
 
                     <!-- 6. Promosi & Reklame -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('promosi-reklame')">
                         <div>
-                            <div class="h-44 bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
                                 <img id="img-cover-promosi-reklame" src="" alt="Promosi & Reklame" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="changeCoverImage('promosi-reklame')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
+                                <button onclick="event.stopPropagation(); changeCoverImage('promosi-reklame')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
                                     <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
                                 </button>
                             </div>
-                            <div onclick="navigateTo('promosi-reklame')" class="p-5 space-y-2 cursor-pointer">
+                            <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Promosi & Reklame</h3>
                                 <p class="text-xs text-gray-500 leading-relaxed">Spanduk banner outdoor/indoor, stiker, plang toko, neonbox, baliho.</p>
                             </div>
                         </div>
-                        <div onclick="navigateTo('promosi-reklame')" class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1 cursor-pointer">
+                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
                             Buka Galeri Photo Reklame <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
                     </div>
 
                     <!-- 7. Print Dokumen -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group">
+                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('cetak-dokumen')">
                         <div>
-                            <div class="h-44 bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
                                 <img id="img-cover-cetak-dokumen" src="" alt="Print Dokumen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="changeCoverImage('cetak-dokumen')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
+                                <button onclick="event.stopPropagation(); changeCoverImage('cetak-dokumen')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
                                     <i class="fa-solid fa-pen-to-square"></i> Ganti Foto
                                 </button>
                             </div>
-                            <div onclick="navigateTo('cetak-dokumen')" class="p-5 space-y-2 cursor-pointer">
+                            <div class="p-5 space-y-2">
                                 <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Print Dokumen</h3>
                                 <p class="text-xs text-gray-500 leading-relaxed">Cetak berkas kilat, brosur, kartu nama, kop surat, nota NCR, sertifikat.</p>
                             </div>
                         </div>
-                        <div onclick="navigateTo('cetak-dokumen')" class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1 cursor-pointer">
+                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
                             Buka Galeri Photo Dokumen <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </div>
                     </div>
@@ -491,7 +485,7 @@
                     </form>
                 </div>
 
-                <!-- GRID FOTO -->
+                <!-- GRID FOTO PORTOFOLIO -->
                 <div id="subpage-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
 
                 <div id="subpage-empty" class="hidden text-center py-16 bg-white rounded-xl border border-dashed border-gray-300 space-y-2">
@@ -566,7 +560,7 @@
                 if (imgElem) {
                     imgElem.src = coverImages[key];
                     imgElem.onerror = function() {
-                        this.src = 'https://placehold.co/600x400/3c4043/ffffff?text=KAMBOJA+Printing';
+                        this.src = 'https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';
                     };
                 }
             });
@@ -647,8 +641,8 @@
                     card.className = "bg-white border border-gray-200 overflow-hidden shadow-sm rounded-lg flex flex-col justify-between group";
                     card.innerHTML = `
                         <div>
-                            <div class="h-56 bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/3c4043/ffffff?text=KAMBOJA+Printing';">
+                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';">
                                 ${isAdmin ? `
                                     <button onclick="deletePhoto(${p.id})" class="absolute top-3 right-3 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105 z-10" title="Hapus Foto">
                                         <i class="fa-solid fa-trash-can text-xs"></i>
