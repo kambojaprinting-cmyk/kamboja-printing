@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KAMBOJA Printing - Solusi Desain dan Cetak</title>
+    <title>KAMBOJA Printing - Solusi Desain dan Cetak Pontianak</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -16,8 +16,8 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #ffffff;
-            color: #3c4043;
+            background-color: #f8fafc;
+            color: #334155;
         }
         .page-view { display: none; }
         .page-view.active { display: block; }
@@ -25,17 +25,17 @@
 </head>
 <body class="min-h-full flex flex-col justify-between">
 
-    <!-- Toast Notification Container -->
+    <!-- Toast Notification -->
     <div id="toast-container" class="fixed top-6 right-6 z-[100] flex flex-col gap-3 max-w-sm w-full"></div>
 
-    <!-- MODAL FORM ADMIN (TIDAK AKAN HILANG SAAT PINDAH TAB) -->
+    <!-- MODAL FORM ADMIN (TIDAK HILANG SAAT PINDAH TAB) -->
     <div id="admin-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 space-y-5 border border-gray-100">
             <div class="flex justify-between items-center border-b pb-3">
                 <h3 class="font-bold text-lg text-gray-900 flex items-center gap-2">
                     <i class="fa-solid fa-pen-to-square text-blue-600"></i> Update Foto Publik
                 </h3>
-                <button onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-xl font-bold">&times;</button>
+                <button type="button" onclick="closeAdminModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
             </div>
 
             <form id="admin-form" onsubmit="handleAdminSubmit(event)" class="space-y-4 text-xs">
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="border-t pt-3 space-y-3">
-                    <p class="font-bold text-gray-800 text-[11px]">Pengaturan Akses GitHub (Tersimpan Otomatis):</p>
+                    <p class="font-bold text-gray-800 text-[11px]">Pengaturan Akses GitHub:</p>
                     
                     <div>
                         <label class="block text-gray-600 mb-1">GitHub Personal Access Token:</label>
@@ -60,8 +60,8 @@
                     </div>
 
                     <div>
-                        <label class="block text-gray-600 mb-1">Repository Path (Username/NamaRepo):</label>
-                        <input type="text" id="modal-gh-repo" required placeholder="kambojaprinting-cmyk/nama-repo-anda" class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 outline-none">
+                        <label class="block text-gray-600 mb-1">Repository Path:</label>
+                        <input type="text" id="modal-gh-repo" value="kambojaprinting-cmyk/kamboja-printing" required readonly class="w-full bg-gray-100 border border-gray-300 rounded-lg p-2.5 text-gray-600 outline-none cursor-not-allowed">
                     </div>
                 </div>
 
@@ -75,76 +75,89 @@
 
     <!-- HEADER / NAVIGASI -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-lg">K</div>
-                <span class="font-bold text-lg text-gray-900 tracking-tight">KAMBOJA Printing</span>
+                <div class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-xl shadow">K</div>
+                <span class="font-extrabold text-lg text-gray-900 tracking-tight">KAMBOJA <span class="text-blue-600">Printing</span></span>
             </a>
 
-            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium text-gray-600">
-                <a href="javascript:void(0)" onclick="navigateTo('home')" class="hover:text-blue-600 transition-colors">Beranda</a>
-                <a href="javascript:void(0)" onclick="navigateTo('cetak-sablon')" class="hover:text-blue-600 transition-colors">Cetak & Sablon</a>
-                <a href="javascript:void(0)" onclick="navigateTo('desain-grafis')" class="hover:text-blue-600 transition-colors">Desain Grafis</a>
-                <a href="javascript:void(0)" onclick="navigateTo('produk-digital')" class="hover:text-blue-600 transition-colors">Produk Digital</a>
+            <!-- Menu Desktop & Mobile -->
+            <nav class="flex items-center space-x-2 sm:space-x-4 text-xs sm:text-sm font-semibold text-gray-600">
+                <button onclick="navigateTo('home')" class="hover:text-blue-600 px-2 py-1 rounded transition-colors">Beranda</button>
+                <button onclick="navigateTo('cetak-sablon')" class="hover:text-blue-600 px-2 py-1 rounded transition-colors">Cetak & Sablon</button>
+                <button onclick="navigateTo('desain-grafis')" class="hover:text-blue-600 px-2 py-1 rounded transition-colors">Desain</button>
+                <button onclick="navigateTo('produk-digital')" class="hover:text-blue-600 px-2 py-1 rounded transition-colors">Digital</button>
                 
-                <button id="admin-logout-btn" onclick="logoutAdmin()" class="hidden text-xs bg-red-100 text-red-600 hover:bg-red-200 px-3 py-1 rounded font-bold">
-                    Keluar Admin
+                <button id="admin-logout-btn" onclick="logoutAdmin()" class="hidden text-xs bg-red-100 text-red-600 hover:bg-red-200 px-2.5 py-1 rounded-md font-bold">
+                    Logout Admin
                 </button>
             </nav>
         </div>
     </header>
 
     <main class="flex-grow">
-        <!-- HALAMAN 1: BERANDA -->
+        <!-- ================= HALAMAN 1: BERANDA ================= -->
         <section id="view-home" class="page-view active">
-            <div class="bg-[#3c4043] text-white py-12 px-6">
+            <div class="bg-slate-800 text-white py-12 px-6">
                 <div class="max-w-4xl mx-auto text-center space-y-3">
-                    <h1 class="text-2xl md:text-4xl font-extrabold leading-tight">Solusi Desain dan Cetak Semua Kebutuhan Usaha Anda di Pontianak!</h1>
-                    <p class="text-gray-300 text-xs md:text-sm max-w-2xl mx-auto">Dari cetak segala kebutuhan promosi, kemasan, perlengkapan kantor, stempel otomatis, sablon kaos, hingga reklame dan produk digital.</p>
+                    <h1 class="text-2xl md:text-4xl font-extrabold leading-tight">Solusi Desain dan Cetak Kebutuhan Usaha Anda!</h1>
+                    <p class="text-gray-300 text-xs md:text-sm max-w-2xl mx-auto">Dari cetak perlengkapan promosi, kemasan, stempel otomatis, sablon kaos, hingga produk digital lengkap di Pontianak.</p>
                 </div>
             </div>
 
-            <div class="py-12 bg-[#e9f0e8]">
+            <div class="py-12 bg-slate-100">
                 <div class="max-w-6xl mx-auto px-4">
                     <div class="grid md:grid-cols-3 gap-6">
                         
                         <!-- CARD 1 -->
-                        <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square">
+                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50">
                                     <img id="img-cover-cetak-sablon" src="" class="w-full h-full object-cover">
-                                    <button onclick="openAdminModal('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                    <button onclick="openAdminModal('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-                                <h3 class="text-center font-bold text-base text-gray-900">Layanan Cetak & Sablon Fisik</h3>
+                                <h3 class="text-center font-bold text-lg text-gray-900">Cetak & Sablon Fisik</h3>
+                                <p class="text-xs text-gray-500 text-center">Layanan cetak stempel, sablon kaos, buku yasin, spanduk, dan brosur.</p>
                             </div>
+                            <button onclick="navigateTo('cetak-sablon')" class="w-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold py-2.5 rounded-xl text-xs text-center transition-colors">
+                                Lihat Semua Layanan Cetak &rarr;
+                            </button>
                         </div>
 
                         <!-- CARD 2 -->
-                        <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square">
+                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50">
                                     <img id="img-cover-desain-grafis" src="" class="w-full h-full object-cover">
-                                    <button onclick="openAdminModal('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                    <button onclick="openAdminModal('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-                                <h3 class="text-center font-bold text-base text-gray-900">Jasa Desain Grafis Custom</h3>
+                                <h3 class="text-center font-bold text-lg text-gray-900">Jasa Desain Grafis</h3>
+                                <p class="text-xs text-gray-500 text-center">Pembuatan logo profesional, kemasan produk, postingan media sosial, dan banner.</p>
                             </div>
+                            <button onclick="navigateTo('desain-grafis')" class="w-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold py-2.5 rounded-xl text-xs text-center transition-colors">
+                                Lihat Layanan Desain &rarr;
+                            </button>
                         </div>
 
                         <!-- CARD 3 -->
-                        <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between space-y-4">
                             <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square">
+                                <div class="relative group border border-gray-100 rounded-xl overflow-hidden aspect-square bg-gray-50">
                                     <img id="img-cover-produk-digital" src="" class="w-full h-full object-cover">
-                                    <button onclick="openAdminModal('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                    <button onclick="openAdminModal('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg z-10">
                                         <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-                                <h3 class="text-center font-bold text-base text-gray-900">Aneka Produk Digital</h3>
+                                <h3 class="text-center font-bold text-lg text-gray-900">Produk Digital</h3>
+                                <p class="text-xs text-gray-500 text-center">Undangan digital interaktif, website profil usaha, serta template siap pakai.</p>
                             </div>
+                            <button onclick="navigateTo('produk-digital')" class="w-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold py-2.5 rounded-xl text-xs text-center transition-colors">
+                                Lihat Produk Digital &rarr;
+                            </button>
                         </div>
 
                     </div>
@@ -152,55 +165,91 @@
             </div>
         </section>
 
-        <!-- HALAMAN 2: CETAK SABLON -->
-        <section id="view-cetak-sablon" class="page-view py-10 bg-slate-50">
-            <div class="max-w-6xl mx-auto px-6 space-y-8">
-                <h1 class="text-2xl font-extrabold text-gray-900 border-b pb-4">Kategori Cetak & Sablon</h1>
+        <!-- ================= HALAMAN 2: CETAK & SABLON ================= -->
+        <section id="view-cetak-sablon" class="page-view py-10">
+            <div class="max-w-6xl mx-auto px-4 space-y-6">
+                <div class="flex items-center justify-between border-b pb-4">
+                    <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Kategori Cetak & Sablon</h1>
+                    <button onclick="navigateTo('home')" class="text-xs text-blue-600 font-bold hover:underline">&larr; Kembali ke Beranda</button>
+                </div>
+
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
-                    <div class="bg-white border rounded-xl overflow-hidden shadow-sm relative p-4 space-y-3">
-                        <div class="h-44 bg-gray-100 relative rounded overflow-hidden">
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden">
                             <img id="img-cover-sablon-kaos" src="" class="w-full h-full object-cover">
-                            <button onclick="openAdminModal('sablon-kaos')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded">Ganti Foto</button>
+                            <button onclick="openAdminModal('sablon-kaos')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
                         </div>
-                        <h3 class="font-bold text-gray-900">Sablon Kaos</h3>
+                        <h3 class="font-bold text-gray-900">Sablon Kaos Custom</h3>
                     </div>
 
-                    <div class="bg-white border rounded-xl overflow-hidden shadow-sm relative p-4 space-y-3">
-                        <div class="h-44 bg-gray-100 relative rounded overflow-hidden">
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden">
                             <img id="img-cover-buku-yasin" src="" class="w-full h-full object-cover">
-                            <button onclick="openAdminModal('buku-yasin')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded">Ganti Foto</button>
+                            <button onclick="openAdminModal('buku-yasin')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
                         </div>
-                        <h3 class="font-bold text-gray-900">Buku Yasin</h3>
+                        <h3 class="font-bold text-gray-900">Cetak Buku Yasin</h3>
                     </div>
 
-                    <div class="bg-white border rounded-xl overflow-hidden shadow-sm relative p-4 space-y-3">
-                        <div class="h-44 bg-gray-100 relative rounded overflow-hidden">
+                    <div class="bg-white border rounded-2xl overflow-hidden shadow-sm p-4 space-y-3">
+                        <div class="h-48 bg-gray-100 relative rounded-xl overflow-hidden">
                             <img id="img-cover-stempel" src="" class="w-full h-full object-cover">
-                            <button onclick="openAdminModal('stempel')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded">Ganti Foto</button>
+                            <button onclick="openAdminModal('stempel')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-md">Ganti Foto</button>
                         </div>
-                        <h3 class="font-bold text-gray-900">Stempel Otomatis</h3>
+                        <h3 class="font-bold text-gray-900">Stempel Otomatis / Flash</h3>
                     </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- ================= HALAMAN 3: DESAIN GRAFIS ================= -->
+        <section id="view-desain-grafis" class="page-view py-10">
+            <div class="max-w-6xl mx-auto px-4 space-y-6">
+                <div class="flex items-center justify-between border-b pb-4">
+                    <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Layanan Desain Grafis</h1>
+                    <button onclick="navigateTo('home')" class="text-xs text-blue-600 font-bold hover:underline">&larr; Kembali ke Beranda</button>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border text-center space-y-3">
+                    <i class="fa-solid fa-palette text-4xl text-blue-600"></i>
+                    <h3 class="font-bold text-lg text-gray-800">Jasa Desain Profesional</h3>
+                    <p class="text-xs text-gray-500 max-w-md mx-auto">Kami melayani pembuatan desain logo, kemasan produk, feeds Instagram, banner promosi, dan kebutuhan branding lainnya.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HALAMAN 4: PRODUK DIGITAL ================= -->
+        <section id="view-produk-digital" class="page-view py-10">
+            <div class="max-w-6xl mx-auto px-4 space-y-6">
+                <div class="flex items-center justify-between border-b pb-4">
+                    <h1 class="text-xl sm:text-2xl font-extrabold text-gray-900">Kategori Produk Digital</h1>
+                    <button onclick="navigateTo('home')" class="text-xs text-blue-600 font-bold hover:underline">&larr; Kembali ke Beranda</button>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border text-center space-y-3">
+                    <i class="fa-solid fa-laptop-code text-4xl text-blue-600"></i>
+                    <h3 class="font-bold text-lg text-gray-800">Produk Digital & Website</h3>
+                    <p class="text-xs text-gray-500 max-w-md mx-auto">Kami menyediakan pembuatan website UMKM, undangan digital interaktif, dan aset grafis digital.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-[#3c4043] text-gray-300 py-6 text-center text-xs">
-        <p>KAMBOJA Printing Pontianak © 2026</p>
+    <!-- FOOTER -->
+    <footer class="bg-slate-800 text-gray-400 py-6 text-center text-xs border-t border-slate-700">
+        <p>KAMBOJA Printing Pontianak © 2026. All Rights Reserved.</p>
     </footer>
 
+    <!-- JAVASCRIPT LOGIC -->
     <script>
+        // LINK GAMBAR DEFAULTS
         const defaultCoverImages = {
             'cetak-sablon': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
-            'desain-grafis': 'https://i.postimg.cc/3RFfNPmg/Jasa-Desain.jpg',
-            'produk-digital': 'https://i.postimg.cc/DZPp0tLs/Produk-Digital.jpg',
+            'desain-grafis': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
+            'produk-digital': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
             'sablon-kaos': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
             'buku-yasin': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg',
             'stempel': 'https://i.postimg.cc/vBt2Tpf7/Cetak-Sablon.jpg'
         };
 
+        // RENDER GAMBAR
         function loadCoverImages() {
             Object.keys(defaultCoverImages).forEach(key => {
                 const imgElem = document.getElementById(`img-cover-${key}`);
@@ -208,14 +257,24 @@
             });
         }
 
-        // BUKA MODAL FORM ADMIN
+        // FUNGSI NAVIGASI HALAMAN (MENU LINK)
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+            const target = document.getElementById(`view-${pageId}`);
+            if (target) {
+                target.classList.add('active');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            checkAdminSession();
+        }
+
+        // BUKA MODAL ADMIN
         function openAdminModal(catKey) {
             document.getElementById('modal-category-key').value = catKey;
             document.getElementById('modal-category-display').value = catKey.toUpperCase();
             
-            // Auto fill data tersimpan
+            // Auto-fill token dari localstorage
             document.getElementById('modal-gh-token').value = localStorage.getItem('gh_token') || '';
-            document.getElementById('modal-gh-repo').value = localStorage.getItem('gh_repo') || '';
             document.getElementById('modal-image-url').value = '';
 
             document.getElementById('admin-modal').classList.remove('hidden');
@@ -225,7 +284,7 @@
             document.getElementById('admin-modal').classList.add('hidden');
         }
 
-        // SUBMIT FORM MODAL KE GITHUB API
+        // SUBMIT FORM KE GITHUB API
         async function handleAdminSubmit(e) {
             e.preventDefault();
             const catKey = document.getElementById('modal-category-key').value;
@@ -238,9 +297,8 @@
                 return;
             }
 
-            // Simpan token & repo di browser biar tidak perlu isi lagi
+            // Simpan token di memori browser
             localStorage.setItem('gh_token', token);
-            localStorage.setItem('gh_repo', repo);
 
             const btn = document.getElementById('btn-save-modal');
             btn.disabled = true;
@@ -252,12 +310,12 @@
                     headers: { 'Authorization': `token ${token}` }
                 });
 
-                if (!getRes.ok) throw new Error("Gagal akses Repo. Cek Format 'Username/NamaRepo' & Token!");
+                if (!getRes.ok) throw new Error("Gagal Akses Repository! Periksa Token GitHub Anda.");
                 
                 const fileData = await getRes.json();
                 let content = decodeURIComponent(escape(atob(fileData.content)));
 
-                // Update kode HTML
+                // Update link gambar pada file HTML
                 const regex = new RegExp(`'${catKey}':\\s*'[^']+'`);
                 content = content.replace(regex, `'${catKey}': '${newUrl}'`);
 
@@ -268,18 +326,18 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        message: `Admin update foto publik ${catKey}`,
+                        message: `Admin Update Gambar: ${catKey}`,
                         content: btoa(unescape(encodeURIComponent(content))),
                         sha: fileData.sha
                     })
                 });
 
                 if (putRes.ok) {
-                    showToast("BERHASIL! Foto ter-publish publik. Reloading...", "success");
+                    showToast("BERHASIL! Foto ter-publish ke seluruh pengunjung web.", "success");
                     closeAdminModal();
                     setTimeout(() => location.reload(), 1500);
                 } else {
-                    throw new Error("Gagal mengupdate. Token/Repo salah.");
+                    throw new Error("Gagal meng-update ke GitHub. Cek Token Anda.");
                 }
 
             } catch (err) {
@@ -292,18 +350,10 @@
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            toast.className = `p-4 rounded-lg shadow-lg text-white font-bold text-xs flex items-center gap-2 ${type === 'success' ? 'bg-emerald-600' : 'bg-red-600'}`;
+            toast.className = `p-4 rounded-xl shadow-xl text-white font-bold text-xs flex items-center gap-2 ${type === 'success' ? 'bg-emerald-600' : 'bg-red-600'}`;
             toast.innerHTML = `<span>${message}</span>`;
             container.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
-
-        function navigateTo(pageId) {
-            document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
-            const target = document.getElementById(`view-${pageId}`);
-            if (target) target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'instant' });
-            checkAdminSession();
+            setTimeout(() => toast.remove(), 3500);
         }
 
         function checkAdminSession() {
@@ -321,6 +371,7 @@
             location.reload();
         }
 
+        // INIT SAAT HALAMAN DIMUAT
         window.onload = function() {
             loadCoverImages();
             const urlParams = new URLSearchParams(window.location.search);
