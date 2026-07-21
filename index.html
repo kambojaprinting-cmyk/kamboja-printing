@@ -132,7 +132,7 @@
 
                     <div class="grid md:grid-cols-3 gap-6">
                         
-                        <!-- KARTU 1: CETAK FISIK (Ubah nama file gambar sesuai foto di folder lokal Anda) -->
+                        <!-- KARTU 1: CETAK FISIK -->
                         <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
                             <div class="space-y-4">
                                 <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('cetak-sablon')">
@@ -283,7 +283,6 @@
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- 7 KATEGORI FOTO LOKAL (Sesuaikan nama file gambarnya di folder images/ Anda) -->
                     <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('sablon-kaos')">
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
@@ -459,8 +458,8 @@
 
     </main>
 
-    <!-- TOMBOL PINTAS ADMIN -->
-    <button onclick="toggleAdminMode()" class="fixed bottom-4 right-4 bg-slate-900 text-white hover:bg-black text-[11px] font-bold px-3 py-2 rounded-full shadow-2xl z-[90] flex items-center gap-2 border border-slate-700">
+    <!-- TOMBOL PINTAS ADMIN (DISEMBUNYIKAN DI URL UTAMA / TAMPIL BERSIH) -->
+    <button id="admin-trigger-btn" onclick="toggleAdminMode()" class="hidden fixed bottom-4 right-4 bg-slate-900 text-white hover:bg-black text-[11px] font-bold px-3 py-2 rounded-full shadow-2xl z-[90] items-center gap-2 border border-slate-700">
         <i class="fa-solid fa-user-shield text-yellow-400"></i> <span id="quick-admin-text">Login Admin</span>
     </button>
 
@@ -471,49 +470,8 @@
 
     <script>
         const defaultPortfolios = [
-          {
-                    "id": 1784657787234,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "upload/1784657785258_stempel_3.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784657779583,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "upload/1784657776787_stempel_2.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784657769162,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "upload/1784657767268_stempel_1.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784657746299,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784657744457_2.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784657736976,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784657735229_02.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784657725929,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "upload/1784657721516_1.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          }
-];
+            { id: 1, category: 'sablon-kaos', title: 'Galeri Sablon Kaos', image: 'images/kaos.jpg', desc: 'Portofolio Kamboja Printing' }
+        ];
 
         const categoriesMap = {
             'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
@@ -791,12 +749,15 @@
             const logoutBtn = document.getElementById('admin-logout-btn');
             const adminGlobalConfig = document.getElementById('admin-global-config');
             const adminUploadPanel = document.getElementById('admin-upload-panel');
+            const adminTriggerBtn = document.getElementById('admin-trigger-btn');
             const quickText = document.getElementById('quick-admin-text');
 
             if (isAdmin) {
                 logoutBtn.classList.remove('hidden');
                 logoutBtn.classList.add('inline-block');
                 adminGlobalConfig.classList.remove('hidden');
+                adminTriggerBtn.classList.remove('hidden');
+                adminTriggerBtn.classList.add('flex');
                 quickText.textContent = "Mode Admin (Keluar)";
 
                 if (currentCategory !== 'home' && currentCategory !== 'cetak-sablon') {
@@ -808,6 +769,8 @@
                 logoutBtn.classList.add('hidden');
                 adminGlobalConfig.classList.add('hidden');
                 adminUploadPanel.classList.add('hidden');
+                adminTriggerBtn.classList.remove('flex');
+                adminTriggerBtn.classList.add('hidden');
                 quickText.textContent = "Login Admin";
             }
         }
