@@ -75,11 +75,8 @@
 
     <main class="flex-grow">
 
-        <!-- ========================================== -->
         <!-- HALAMAN 1: BERANDA -->
-        <!-- ========================================== -->
         <section id="view-home" class="page-view active">
-            <!-- HERO BANNER -->
             <div class="bg-[#3c4043] text-white py-12 px-6">
                 <div class="max-w-4xl mx-auto text-center space-y-3">
                     <h1 class="text-2xl md:text-4xl font-extrabold leading-tight">
@@ -91,7 +88,6 @@
                 </div>
             </div>
 
-            <!-- SECTION: KATEGORI PRODUK & JASA -->
             <div class="py-12 bg-[#e9f0e8]">
                 <div class="max-w-6xl mx-auto px-4">
                     <div class="text-center max-w-2xl mx-auto mb-8">
@@ -100,30 +96,26 @@
                     </div>
 
                     <div class="grid md:grid-cols-3 gap-6">
-                        
                         <!-- KARTU 1: CETAK FISIK -->
                         <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
                             <div class="space-y-4">
                                 <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('cetak-sablon')">
                                     <img id="img-cover-cetak-sablon" src="" alt="Cetak & Sablon Fisik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                                     <button onclick="event.stopPropagation(); changeCoverImage('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto Imgur
+                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-
                                 <h3 class="text-center font-bold text-base text-gray-900">
                                     <a href="javascript:void(0)" onclick="navigateTo('cetak-sablon')" class="hover:text-blue-700 underline">
                                         Layanan Cetak & Sablon Fisik (Lokal/Offline)
                                     </a>
                                 </h3>
-
                                 <ul class="list-disc list-outside ml-5 text-xs text-gray-700 space-y-2 leading-relaxed">
                                     <li><strong>Sablon:</strong> Kaos, Karung, Kardus, Bendera.</li>
                                     <li><strong>Media Promosi:</strong> Spanduk, Stiker, Plang Nama Toko, Neonbox.</li>
                                     <li><strong>Kebutuhan Kantor & Acara:</strong> Stempel, Buku Yasin, Undangan, ID Card, Brosur, Laminasi, Nota/Kuitansi, Sertifikat, dll.</li>
                                 </ul>
                             </div>
-
                             <div class="pt-6">
                                 <a href="https://wa.me/6289515881309?text=Halo%20Kamboja%20Printing%2C%20saya%20mau%20tanya%20harga%20%2F%20order%20Layanan%20Cetak%20%26%20Sablon%20Fisik" target="_blank" class="w-full bg-[#030e2e] hover:bg-[#0a1b4d] text-white font-bold text-xs py-3 px-2 rounded text-center block transition-colors shadow">
                                     Tanya Harga / Order via WhatsApp
@@ -137,23 +129,20 @@
                                 <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('desain-grafis')">
                                     <img id="img-cover-desain-grafis" src="" alt="Desain Grafis Custom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                                     <button onclick="event.stopPropagation(); changeCoverImage('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto Imgur
+                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-
                                 <h3 class="text-center font-bold text-base text-gray-900">
                                     <a href="javascript:void(0)" onclick="navigateTo('desain-grafis')" class="hover:text-blue-700 underline">
                                         Jasa Desain Grafis Custom (Online & Fleksibel)
                                     </a>
                                 </h3>
-
                                 <ul class="list-disc list-outside ml-5 text-xs text-gray-700 space-y-2 leading-relaxed">
                                     <li>Desain Logo Perusahaan & Re-branding.</li>
                                     <li>Desain Stempel Perusahaan/Instansi.</li>
                                     <li>Flyer Promosi, Brosur, & Edit Dokumen.</li>
                                 </ul>
                             </div>
-
                             <div class="pt-6">
                                 <a href="https://wa.me/6289515881309?text=Halo%20Kamboja%20Printing%2C%20saya%20mau%20Konsultasi%20Desain%20Grafis" target="_blank" class="w-full bg-[#030e2e] hover:bg-[#0a1b4d] text-white font-bold text-xs py-3 px-2 rounded text-center block transition-colors shadow">
                                     Konsultasi Desain via WhatsApp
@@ -167,16 +156,14 @@
                                 <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('produk-digital')">
                                     <img id="img-cover-produk-digital" src="" alt="Produk Digital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                                     <button onclick="event.stopPropagation(); changeCoverImage('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto Imgur
+                                        <i class="fa-solid fa-pen-to-square mr-1"></i> Ganti Foto
                                     </button>
                                 </div>
-
                                 <h3 class="text-center font-bold text-base text-gray-900">
                                     <a href="javascript:void(0)" onclick="navigateTo('produk-digital')" class="hover:text-blue-700 underline">
                                         Aneka Produk Digital
                                     </a>
                                 </h3>
-
                                 <ul class="list-disc list-outside ml-5 text-xs text-gray-700 space-y-2 leading-relaxed">
                                     <li>Template Desain Siap Pakai (Canva / CorelDraw / Photoshop).</li>
                                     <li>E-Book Bisnis & Panduan Kreatif.</li>
@@ -184,7 +171,6 @@
                                     <li>Dll.</li>
                                 </ul>
                             </div>
-
                             <div class="pt-6">
                                 <a href="https://wa.me/6289515881309?text=Halo%20Kamboja%20Printing%2C%20saya%20mau%20Tanya%20Stok%20Produk%20Digital" target="_blank" class="w-full bg-[#030e2e] hover:bg-[#0a1b4d] text-white font-bold text-xs py-3 px-2 rounded text-center block transition-colors shadow">
                                     Tanya Stok via WhatsApp
@@ -196,48 +182,42 @@
                 </div>
             </div>
 
-            <!-- SECTION: VIDEO PROMOSI YOUTUBE -->
+            <!-- VIDEO PROMOSI YOUTUBE -->
             <div class="py-12 bg-white">
                 <div class="max-w-5xl mx-auto px-4">
                     <div class="grid md:grid-cols-2 gap-8">
-                        <!-- Video 1 -->
                         <div class="space-y-3">
                             <h3 class="text-sm font-bold text-gray-800 flex items-center gap-2">
                                 <i class="fab fa-youtube text-red-600 text-base"></i> Promo Kamboja Printing Pontianak 01
                             </h3>
                             <div class="relative w-full overflow-hidden rounded-xl shadow-md border border-gray-200 bg-black aspect-video">
-                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/HfOO0DvJTjc" title="Promo Kamboja Printing Pontianak 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/HfOO0DvJTjc" title="Promo Kamboja Printing Pontianak 01" frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
-
-                        <!-- Video 2 -->
                         <div class="space-y-3">
                             <h3 class="text-sm font-bold text-gray-800 flex items-center gap-2">
                                 <i class="fab fa-youtube text-red-600 text-base"></i> Promo Kamboja Printing Pontianak 02
                             </h3>
                             <div class="relative w-full overflow-hidden rounded-xl shadow-md border border-gray-200 bg-black aspect-video">
-                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/nrrYw7LjZrE" title="Promo Kamboja Printing Pontianak 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/nrrYw7LjZrE" title="Promo Kamboja Printing Pontianak 02" frameborder="0" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- SECTION: KUNJUNGI WORKSHOP KAMI -->
+            <!-- KUNJUNGI WORKSHOP -->
             <div class="py-12 bg-gray-100 border-t border-b border-gray-200">
                 <div class="max-w-5xl mx-auto px-4">
                     <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <!-- Google Maps Embed -->
                         <div class="w-full h-64 md:h-72 rounded-xl overflow-hidden shadow-md border border-gray-300">
-                            <iframe class="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8180496150245!2d109.336!3d-0.028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMDEnNDAuOCJTIDEwOcKwMjAnMDkuNiJF!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe class="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8180496150245!2d109.336!3d-0.028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMDEnNDAuOSJTIDEwOcKwMjAnMDkuNiJF!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
                         </div>
-
-                        <!-- Deskripsi Lokasi -->
                         <div class="space-y-4">
                             <h2 class="text-xl font-bold text-gray-900 border-b border-gray-300 pb-2">Kunjungi Workshop Kami</h2>
                             <div class="space-y-2 text-xs md:text-sm text-gray-700 leading-relaxed">
                                 <p class="font-bold text-gray-900 text-base">KAMBOJA Printing</p>
-                                <p><i class="fa-solid fa-location-dot text-red-600 mr-2"></i>Jl. Tanjungpura Gg. Kamboja, Kota Pontianak, Kalimantan Barat 78122 (Kawasan Mall Ramayana, berada di salah satu jalur keluar kendaraan utama Mall)</p>
+                                <p><i class="fa-solid fa-location-dot text-red-600 mr-2"></i>Jl. Tanjungpura Gg. Kamboja, Kota Pontianak, Kalimantan Barat 78122 (Kawasan Mall Ramayana)</p>
                                 <p><i class="fa-regular fa-clock text-blue-600 mr-2"></i><strong>Jam Operasional:</strong> Senin - Sabtu (08.00 - 17.00 WIB)</p>
                             </div>
                             <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg shadow transition-colors">
@@ -247,33 +227,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- SECTION: KENAPA KONSUMEN MEMILIH KAMBOJA PRINTING? -->
-            <div class="py-12 bg-white">
-                <div class="max-w-4xl mx-auto px-6">
-                    <h2 class="text-xl md:text-2xl font-bold text-gray-900 mb-6 text-left">Kenapa Konsumen Memilih KAMBOJA Printing?</h2>
-                    
-                    <ul class="space-y-3 text-xs md:text-sm text-gray-700 leading-relaxed">
-                        <li class="flex items-start gap-2">
-                            <span class="font-bold text-gray-900 whitespace-nowrap">• Proses Cepat & Responsiif:</span>
-                            <span>File dikirim online, langsung masuk antrean produksi.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="font-bold text-gray-900 whitespace-nowrap">• Kualitas Presisi:</span>
-                            <span>Didukung pengalaman teknis jangka panjang di dunia desain dan cetak.</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <span class="font-bold text-gray-900 whitespace-nowrap">• Pengiriman Aman:</span>
-                            <span>Melayani pengiriman lokal Pontianak maupun ke seluruh Indonesia untuk produk fisik dan digital.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </section>
 
-        <!-- ========================================== -->
         <!-- HALAMAN 2: CETAK & SABLON FISIK (KATALOG) -->
-        <!-- ========================================== -->
         <section id="view-cetak-sablon" class="page-view py-10 bg-slate-50">
             <div class="max-w-6xl mx-auto px-6 space-y-8">
                 <div class="flex items-center gap-2 text-xs font-semibold text-gray-400">
@@ -285,7 +241,7 @@
                 <div class="space-y-1 border-b border-gray-200 pb-4">
                     <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900">Layanan Cetak & Sablon Fisik</h1>
                     <p class="text-xs md:text-sm text-gray-600 max-w-3xl">
-                        Klik pada foto atau judul kategori di bawah untuk langsung melihat **Galeri Photo Hasil Kerja** Kamboja Printing.
+                        Klik pada foto atau judul kategori di bawah untuk melihat Galeri Photo Hasil Kerja Kamboja Printing.
                     </p>
                 </div>
 
@@ -428,9 +384,7 @@
             </div>
         </section>
 
-        <!-- ========================================== -->
         <!-- HALAMAN 3: GALERI PHOTO SUBPAGE -->
-        <!-- ========================================== -->
         <section id="view-subpage" class="page-view py-10 bg-slate-50">
             <div class="max-w-6xl mx-auto px-6 space-y-6">
                 
@@ -456,8 +410,8 @@
                 <!-- ADMIN PANEL UPLOAD BANYAK FOTO -->
                 <div id="admin-panel" class="hidden bg-white p-5 rounded-lg border border-blue-200 space-y-4 shadow-sm">
                     <div class="flex items-center justify-between border-b border-blue-100 pb-2">
-                        <h4 class="font-bold text-sm text-blue-900"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> Admin Panel: Upload Foto Imgur Ke Kategori Ini</h4>
-                        <span class="text-[11px] text-gray-500">Mendukung Direct Link (.jpg / .png)</span>
+                        <h4 class="font-bold text-sm text-blue-900"><i class="fa-solid fa-cloud-arrow-up mr-1"></i> Admin Panel: Upload Foto Postimages / Direct Link</h4>
+                        <span class="text-[11px] text-gray-500">Gunakan Link Direct (.jpg / .png)</span>
                     </div>
 
                     <form id="admin-add-form" class="space-y-4 text-xs font-medium">
@@ -473,13 +427,13 @@
                         </div>
 
                         <div>
-                            <label class="block text-gray-600 mb-1">Link Foto Imgur (Bisa Banyak Link Sekaligus, 1 Link Per Baris)</label>
-                            <textarea id="add-urls" rows="3" required class="w-full border border-gray-300 rounded p-3 outline-none focus:border-blue-500 font-mono text-[11px]" placeholder="https://i.imgur.com/example1.jpg&#10;https://i.imgur.com/example2.png"></textarea>
+                            <label class="block text-gray-600 mb-1">Link Direct Foto (Bisa Banyak Link Sekaligus, 1 Link Per Baris)</label>
+                            <textarea id="add-urls" rows="3" required class="w-full border border-gray-300 rounded p-3 outline-none focus:border-blue-500 font-mono text-[11px]" placeholder="https://i.postimg.cc/xxx/gambar.jpg"></textarea>
                         </div>
 
                         <div class="flex justify-end">
                             <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded shadow transition-colors flex items-center gap-2">
-                                <i class="fa-solid fa-plus text-xs"></i> Batch Publish Foto Imgur
+                                <i class="fa-solid fa-plus text-xs"></i> Batch Publish Foto
                             </button>
                         </div>
                     </form>
@@ -507,18 +461,29 @@
 
     </main>
 
-    <footer class="bg-[#3c4043] text-gray-300 py-6 border-t border-gray-600 text-center text-xs space-y-1">
+    <footer class="bg-[#3c4043] text-gray-300 py-6 border-t border-gray-600 text-center text-xs space-y-2">
         <p class="font-bold text-white">KAMBOJA Printing Pontianak</p>
-        <p class="text-gray-400 text-[11px]">Cetak, Sablon, Stempel & Produk Digital | WhatsApp: 089515881309 | Hak Cipta © 2026. Semua Hak Dilindungi.</p>
+        <p class="text-gray-400 text-[11px]">Cetak, Sablon, Stempel & Produk Digital | WhatsApp: 089515881309 | Hak Cipta © 2026.</p>
+        <div class="pt-2">
+            <button onclick="resetDataCache()" class="text-[10px] text-gray-400 hover:text-white underline">
+                <i class="fa-solid fa-arrows-rotate mr-1"></i> Reset / Muat Ulang Tampilan Gambar HP
+            </button>
+        </div>
     </footer>
 
     <script>
+        // Sanitize URL untuk mengantisipasi spasi / karakter khusus dari Postimages / WhatsApp
+        function sanitizeUrl(url) {
+            if (!url) return '';
+            return encodeURI(url.trim());
+        }
+
         // Database Foto Sampul (Cover) Default
         const defaultCoverImages = {
-            'cetak-sablon': 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=600',
+            'cetak-sablon': 'https://i.postimg.cc/tCWykg33/Whats-App-Image-2026-07-21-at-09-47-45.jpg',
             'desain-grafis': 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600',
             'produk-digital': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600',
-            'sablon-kaos': 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600',
+            'sablon-kaos': 'https://i.postimg.cc/tCWykg33/Whats-App-Image-2026-07-21-at-09-47-45.jpg',
             'buku-yasin': 'https://images.unsplash.com/photo-1609599006353-e629ebfafecc?q=80&w=600',
             'sablon-karung': 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600',
             'stempel': 'https://images.unsplash.com/photo-1583224964978-2257b960c3d3?q=80&w=600',
@@ -528,7 +493,7 @@
         };
 
         const defaultPortfolios = [
-            { id: 1, category: 'sablon-kaos', title: 'Sablon Kaos Gathering Komunitas', image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600', desc: 'Bahan Cotton Combed 30s premium, cetak sablon DTF lentur & warna tajam.' },
+            { id: 1, category: 'sablon-kaos', title: 'Sablon Kaos Gathering Komunitas', image: 'https://i.postimg.cc/tCWykg33/Whats-App-Image-2026-07-21-at-09-47-45.jpg', desc: 'Bahan Cotton Combed 30s premium, cetak sablon DTF lentur & warna tajam.' },
             { id: 2, category: 'sablon-kaos', title: 'Sablon Kaos Event / Panitia', image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=600', desc: 'Sablon Plastisol presisi tinggi tahan cuci berkali-kali.' },
             { id: 3, category: 'buku-yasin', title: 'Buku Yasin Bludru Sutra Hijau', image: 'https://images.unsplash.com/photo-1609599006353-e629ebfafecc?q=80&w=600', desc: 'Cover beludru sutra hijau tua dengan kaligrafi hot stamp poli emas.' },
             { id: 4, category: 'sablon-karung', title: 'Sablon Karung Beras Premium 5kg - 10kg', image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600', desc: 'Cetak logo branding karung kemasan beras pekat dan rapi.' },
@@ -539,15 +504,15 @@
         ];
 
         const categoriesMap = {
-            'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.', imgurFolder: '' },
-            'buku-yasin': { title: 'Galeri Buku Yasin & Tahlil', desc: 'Portofolio cetak Buku Yasin hardcover bludru, emas, dan beludru mewah.', imgurFolder: '' },
-            'sablon-karung': { title: 'Galeri Sablon Karung', desc: 'Hasil pengerjaan cetak merk/logo pada karung beras dan karung kemasan.', imgurFolder: '' },
-            'stempel': { title: 'Galeri Stempel Otomatis', desc: 'Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna.', imgurFolder: '' },
-            'bendera': { title: 'Galeri Bendera Custom', desc: 'Hasil print bendera kain untuk instansi, partai, suporter, dan spanduk kain.', imgurFolder: '' },
-            'promosi-reklame': { title: 'Galeri Promosi & Reklame', desc: 'Dokumentasi spanduk banner, neonbox, plang toko, stiker, dan baliho.', imgurFolder: '' },
-            'cetak-dokumen': { title: 'Galeri Print Dokumen & Kantor', desc: 'Hasil cetak brosur, nota NCR, sertifikat, kartu nama, dan berkas kantor.', imgurFolder: '' },
-            'desain-grafis': { title: 'Galeri Portofolio Desain Grafis', desc: 'Karya desain logo, re-branding, dan materi promosi visual.', imgurFolder: '' },
-            'produk-digital': { title: 'Katalog Produk Digital', desc: 'Template desain, ebook panduan, dan aset grafis siap pakai.', imgurFolder: '' }
+            'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
+            'buku-yasin': { title: 'Galeri Buku Yasin & Tahlil', desc: 'Portofolio cetak Buku Yasin hardcover bludru, emas, dan beludru mewah.' },
+            'sablon-karung': { title: 'Galeri Sablon Karung', desc: 'Hasil pengerjaan cetak merk/logo pada karung beras dan karung kemasan.' },
+            'stempel': { title: 'Galeri Stempel Otomatis', desc: 'Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna.' },
+            'bendera': { title: 'Galeri Bendera Custom', desc: 'Hasil print bendera kain untuk instansi, partai, suporter, dan spanduk kain.' },
+            'promosi-reklame': { title: 'Galeri Promosi & Reklame', desc: 'Dokumentasi spanduk banner, neonbox, plang toko, stiker, dan baliho.' },
+            'cetak-dokumen': { title: 'Galeri Print Dokumen & Kantor', desc: 'Hasil cetak brosur, nota NCR, sertifikat, kartu nama, dan berkas kantor.' },
+            'desain-grafis': { title: 'Galeri Portofolio Desain Grafis', desc: 'Karya desain logo, re-branding, dan materi promosi visual.' },
+            'produk-digital': { title: 'Katalog Produk Digital', desc: 'Template desain, ebook panduan, dan aset grafis siap pakai.' }
         };
 
         let portfolios = JSON.parse(localStorage.getItem('kamboja_p_data')) || defaultPortfolios;
@@ -558,7 +523,7 @@
             Object.keys(coverImages).forEach(key => {
                 const imgElem = document.getElementById(`img-cover-${key}`);
                 if (imgElem) {
-                    imgElem.src = coverImages[key];
+                    imgElem.src = sanitizeUrl(coverImages[key]);
                     imgElem.onerror = function() {
                         this.src = 'https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';
                     };
@@ -566,9 +531,8 @@
             });
         }
 
-        // Fungsi Admin: Ganti Sampul Kategori
         window.changeCoverImage = function(catKey) {
-            const newUrl = prompt('Masukkan Link Direct Foto Imgur baru (contoh: https://i.imgur.com/abc123.jpg):', coverImages[catKey] || '');
+            const newUrl = prompt('Masukkan Link Direct Foto Postimages baru:', coverImages[catKey] || '');
             if (newUrl !== null && newUrl.trim() !== '') {
                 coverImages[catKey] = newUrl.trim();
                 localStorage.setItem('kamboja_covers', JSON.stringify(coverImages));
@@ -601,18 +565,10 @@
                 const subpage = document.getElementById('view-subpage');
                 subpage.classList.add('active');
                 
-                const info = categoriesMap[pageId] || { title: 'Galeri Foto Hasil Cetak', desc: 'Portofolio Kamboja Printing', imgurFolder: '' };
+                const info = categoriesMap[pageId] || { title: 'Galeri Foto Hasil Cetak', desc: 'Portofolio Kamboja Printing' };
                 document.getElementById('breadcrumb-current').textContent = info.title;
                 document.getElementById('subpage-title').textContent = info.title;
                 document.getElementById('subpage-desc').textContent = info.desc;
-
-                const imgurBtn = document.getElementById('subpage-imgur-folder');
-                if (info.imgurFolder && info.imgurFolder.trim() !== '') {
-                    imgurBtn.href = info.imgurFolder;
-                    imgurBtn.classList.remove('hidden');
-                } else {
-                    imgurBtn.classList.add('hidden');
-                }
 
                 const waMsg = `Halo Kamboja Printing, saya berminat pesan / tanya-tanya seputar: *${info.title}*. Boleh info harga?`;
                 document.getElementById('subpage-wa-btn').href = `https://wa.me/6289515881309?text=${encodeURIComponent(waMsg)}`;
@@ -642,7 +598,7 @@
                     card.innerHTML = `
                         <div>
                             <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';">
+                                <img src="${sanitizeUrl(p.image)}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';">
                                 ${isAdmin ? `
                                     <button onclick="deletePhoto(${p.id})" class="absolute top-3 right-3 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105 z-10" title="Hapus Foto">
                                         <i class="fa-solid fa-trash-can text-xs"></i>
@@ -729,6 +685,16 @@
             showToast('Keluar dari Admin Mode.', 'success');
             checkAdminSession();
             navigateTo(currentCategory);
+        };
+
+        window.resetDataCache = function() {
+            localStorage.removeItem('kamboja_p_data');
+            localStorage.removeItem('kamboja_covers');
+            portfolios = defaultPortfolios;
+            coverImages = defaultCoverImages;
+            loadCoverImages();
+            navigateTo(currentCategory);
+            showToast('Tampilan berhasil di-reset ke data terbaru!', 'success');
         };
 
         window.onload = function() {
