@@ -65,9 +65,7 @@
         </div>
     </div>
 
-    <!-- ========================================== -->
     <!-- HEADER / NAVIGASI -->
-    <!-- ========================================== -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
         <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
             <a href="javascript:void(0)" onclick="navigateTo('home')" class="flex items-center gap-2">
@@ -89,10 +87,6 @@
                         <a href="javascript:void(0)" onclick="navigateTo('sablon-kaos')" class="block px-4 py-2 hover:bg-gray-100">Sablon Kaos</a>
                         <a href="javascript:void(0)" onclick="navigateTo('buku-yasin')" class="block px-4 py-2 hover:bg-gray-100">Buku Yasin</a>
                         <a href="javascript:void(0)" onclick="navigateTo('sablon-karung')" class="block px-4 py-2 hover:bg-gray-100">Sablon Karung</a>
-                        <a href="javascript:void(0)" onclick="navigateTo('stempel')" class="block px-4 py-2 hover:bg-gray-100">Stempel Otomatis</a>
-                        <a href="javascript:void(0)" onclick="navigateTo('bendera')" class="block px-4 py-2 hover:bg-gray-100">Bendera Custom</a>
-                        <a href="javascript:void(0)" onclick="navigateTo('promosi-reklame')" class="block px-4 py-2 hover:bg-gray-100">Promosi & Reklame</a>
-                        <a href="javascript:void(0)" onclick="navigateTo('cetak-dokumen')" class="block px-4 py-2 hover:bg-gray-100">Print Dokumen</a>
                     </div>
                 </div>
 
@@ -111,10 +105,7 @@
     </header>
 
     <main class="flex-grow">
-
-        <!-- ========================================== -->
         <!-- HALAMAN 1: BERANDA -->
-        <!-- ========================================== -->
         <section id="view-home" class="page-view active">
             <div class="bg-[#3c4043] text-white py-12 px-6">
                 <div class="max-w-4xl mx-auto text-center space-y-3">
@@ -122,379 +113,111 @@
                         Solusi Desain dan Cetak Semua Kebutuhan Usaha Anda di Pontianak!
                     </h1>
                     <p class="text-gray-300 text-xs md:text-sm max-w-2xl mx-auto">
-                        Dari cetak segala kebutuhan promosi, kemasan, perlengkapan kantor, stempel otomatis, sablon kaos, hingga reklame dan produk digital. Cukup kirim file secara online, kami proses dengan kualitas terbaik, rapi, dan siap tepat waktu.
+                        Cepat, rapi, dan langsung terkoneksi dengan penyimpanan publik.
                     </p>
                 </div>
             </div>
 
-            <!-- SECTION: KATEGORI PRODUK & JASA -->
+            <!-- KATEGORI -->
             <div class="py-12 bg-[#e9f0e8]">
                 <div class="max-w-6xl mx-auto px-4">
-                    <div class="text-center max-w-2xl mx-auto mb-8">
-                        <h2 class="text-2xl font-bold text-gray-900">Kategori Produk & Jasa</h2>
-                        <p class="text-xs text-gray-600 mt-1">Pilih jenis cetakan yang Anda butuhkan di bawah ini.</p>
-                    </div>
-
                     <div class="grid md:grid-cols-3 gap-6">
-                        
-                        <!-- KARTU 1: CETAK FISIK -->
-                        <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
-                            <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('cetak-sablon')">
-                                    <img id="img-cover-cetak-sablon" src="" alt="Cetak & Sablon Fisik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                    <button onclick="event.stopPropagation(); triggerCoverUpload('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-upload mr-1"></i> Upload Sampul
-                                    </button>
-                                </div>
-
-                                <h3 class="text-center font-bold text-base text-gray-900">
-                                    <a href="javascript:void(0)" onclick="navigateTo('cetak-sablon')" class="hover:text-blue-700 underline">
-                                        Layanan Cetak & Sablon Fisik (Lokal/Offline)
-                                    </a>
-                                </h3>
-
-                                <ul class="list-disc list-outside ml-5 text-xs text-gray-700 space-y-2 leading-relaxed">
-                                    <li><strong>Sablon:</strong> Kaos, Karung, Kardus, Bendera.</li>
-                                    <li><strong>Media Promosi:</strong> Spanduk, Stiker, Plang Nama Toko, Neonbox.</li>
-                                    <li><strong>Kebutuhan Kantor & Acara:</strong> Stempel, Buku Yasin, Undangan, ID Card, Brosur, Laminasi, Nota/Kuitansi, Sertifikat, dll.</li>
-                                </ul>
+                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm space-y-4">
+                            <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('cetak-sablon')">
+                                <img id="img-cover-cetak-sablon" src="" alt="Cetak Sablon" class="w-full h-full object-cover">
+                                <button onclick="event.stopPropagation(); triggerCoverUpload('cetak-sablon')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                    <i class="fa-solid fa-upload mr-1"></i> Upload Sampul
+                                </button>
                             </div>
-
-                            <div class="pt-6">
-                                <a href="https://wa.me/6289515881309?text=Halo%20Kamboja%20Printing%2C%20saya%20mau%20tanya%20harga%20%2F%20order%20Layanan%20Cetak%20%26%20Sablon%20Fisik" target="_blank" class="w-full bg-[#030e2e] hover:bg-[#0a1b4d] text-white font-bold text-xs py-3 px-2 rounded text-center block transition-colors shadow">
-                                    Tanya Harga / Order via WhatsApp
-                                </a>
-                            </div>
+                            <h3 class="font-bold text-center text-gray-900">Layanan Cetak & Sablon Fisik</h3>
                         </div>
 
-                        <!-- KARTU 2: DESAIN GRAFIS -->
-                        <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
-                            <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('desain-grafis')">
-                                    <img id="img-cover-desain-grafis" src="" alt="Desain Grafis Custom" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                    <button onclick="event.stopPropagation(); triggerCoverUpload('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-upload mr-1"></i> Upload Sampul
-                                    </button>
-                                </div>
-
-                                <h3 class="text-center font-bold text-base text-gray-900">
-                                    <a href="javascript:void(0)" onclick="navigateTo('desain-grafis')" class="hover:text-blue-700 underline">
-                                        Jasa Desain Grafis Custom (Online & Fleksibel)
-                                    </a>
-                                </h3>
-
-                                <ul class="list-disc list-outside ml-5 text-xs text-gray-700 space-y-2 leading-relaxed">
-                                    <li>Desain Logo Perusahaan & Re-branding.</li>
-                                    <li>Desain Stempel Perusahaan/Instansi.</li>
-                                    <li>Flyer Promosi, Brosur, & Edit Dokumen.</li>
-                                </ul>
+                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm space-y-4">
+                            <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('desain-grafis')">
+                                <img id="img-cover-desain-grafis" src="" alt="Desain Grafis" class="w-full h-full object-cover">
+                                <button onclick="event.stopPropagation(); triggerCoverUpload('desain-grafis')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                    <i class="fa-solid fa-upload mr-1"></i> Upload Sampul
+                                </button>
                             </div>
-
-                            <div class="pt-6">
-                                <a href="https://wa.me/6289515881309?text=Halo%20Kamboja%20Printing%2C%20saya%20mau%20Konsultasi%20Desain%20Grafis" target="_blank" class="w-full bg-[#030e2e] hover:bg-[#0a1b4d] text-white font-bold text-xs py-3 px-2 rounded text-center block transition-colors shadow">
-                                    Konsultasi Desain via WhatsApp
-                                </a>
-                            </div>
+                            <h3 class="font-bold text-center text-gray-900">Jasa Desain Grafis</h3>
                         </div>
 
-                        <!-- KARTU 3: PRODUK DIGITAL -->
-                        <div class="flex flex-col justify-between bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all">
-                            <div class="space-y-4">
-                                <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('produk-digital')">
-                                    <img id="img-cover-produk-digital" src="" alt="Produk Digital" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                    <button onclick="event.stopPropagation(); triggerCoverUpload('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
-                                        <i class="fa-solid fa-upload mr-1"></i> Upload Sampul
-                                    </button>
-                                </div>
-
-                                <h3 class="text-center font-bold text-base text-gray-900">
-                                    <a href="javascript:void(0)" onclick="navigateTo('produk-digital')" class="hover:text-blue-700 underline">
-                                        Aneka Produk Digital
-                                    </a>
-                                </h3>
-
-                                <ul class="list-disc list-outside ml-5 text-xs text-gray-700 space-y-2 leading-relaxed">
-                                    <li>Template Desain Siap Pakai (Canva / CorelDraw / Photoshop).</li>
-                                    <li>E-Book Bisnis & Panduan Kreatif.</li>
-                                    <li>Koleksi Mentahan Logo & Font Premium.</li>
-                                    <li>Dll.</li>
-                                </ul>
+                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm space-y-4">
+                            <div class="relative group border border-gray-200 rounded overflow-hidden aspect-square cursor-pointer" onclick="navigateTo('produk-digital')">
+                                <img id="img-cover-produk-digital" src="" alt="Produk Digital" class="w-full h-full object-cover">
+                                <button onclick="event.stopPropagation(); triggerCoverUpload('produk-digital')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-md z-10">
+                                    <i class="fa-solid fa-upload mr-1"></i> Upload Sampul
+                                </button>
                             </div>
-
-                            <div class="pt-6">
-                                <a href="https://wa.me/6289515881309?text=Halo%20Kamboja%20Printing%2C%20saya%20mau%20Tanya%20Stok%20Produk%20Digital" target="_blank" class="w-full bg-[#030e2e] hover:bg-[#0a1b4d] text-white font-bold text-xs py-3 px-2 rounded text-center block transition-colors shadow">
-                                    Tanya Stok via WhatsApp
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION: VIDEO PROMOSI YOUTUBE -->
-            <div class="py-12 bg-white">
-                <div class="max-w-5xl mx-auto px-4">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="space-y-3">
-                            <h3 class="text-sm font-bold text-gray-800 flex items-center gap-2">
-                                <i class="fab fa-youtube text-red-600 text-base"></i> Promo Kamboja Printing Pontianak 01
-                            </h3>
-                            <div class="relative w-full overflow-hidden rounded-xl shadow-md border border-gray-200 bg-black aspect-video">
-                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/HfOO0DvJTjc" title="Promo Kamboja Printing Pontianak 01" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                        </div>
-
-                        <div class="space-y-3">
-                            <h3 class="text-sm font-bold text-gray-800 flex items-center gap-2">
-                                <i class="fab fa-youtube text-red-600 text-base"></i> Promo Kamboja Printing Pontianak 02
-                            </h3>
-                            <div class="relative w-full overflow-hidden rounded-xl shadow-md border border-gray-200 bg-black aspect-video">
-                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/nrrYw7LjZrE" title="Promo Kamboja Printing Pontianak 02" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION: KUNJUNGI WORKSHOP KAMI -->
-            <div class="py-12 bg-gray-100 border-t border-b border-gray-200">
-                <div class="max-w-5xl mx-auto px-4">
-                    <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <div class="w-full h-64 md:h-72 rounded-xl overflow-hidden shadow-md border border-gray-300">
-                            <iframe class="w-full h-full border-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8180496150245!2d109.336!3d-0.028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMMKwMDEnNDAuOCJTIDEwOcKwMjAnMDkuNiJF!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
-
-                        <div class="space-y-4">
-                            <h2 class="text-xl font-bold text-gray-900 border-b border-gray-300 pb-2">Kunjungi Workshop Kami</h2>
-                            <div class="space-y-2 text-xs md:text-sm text-gray-700 leading-relaxed">
-                                <p class="font-bold text-gray-900 text-base">KAMBOJA Printing</p>
-                                <p><i class="fa-solid fa-location-dot text-red-600 mr-2"></i>Jl. Tanjungpura Gg. Kamboja, Kota Pontianak, Kalimantan Barat 78122 (Kawasan Mall Ramayana)</p>
-                                <p><i class="fa-regular fa-clock text-blue-600 mr-2"></i><strong>Jam Operasional:</strong> Senin - Sabtu (08.00 - 17.00 WIB)</p>
-                            </div>
-                            <a href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs px-4 py-2.5 rounded-lg shadow transition-colors">
-                                <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps
-                            </a>
+                            <h3 class="font-bold text-center text-gray-900">Produk Digital</h3>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ========================================== -->
-        <!-- HALAMAN 2: CETAK & SABLON FISIK (KATALOG) -->
-        <!-- ========================================== -->
-        <section id="view-cetak-sablon" class="page-view py-10 bg-slate-50">
-            <div class="max-w-6xl mx-auto px-6 space-y-8">
-                <div class="flex items-center gap-2 text-xs font-semibold text-gray-400">
-                    <a href="javascript:void(0)" onclick="navigateTo('home')" class="hover:text-blue-600">Beranda</a>
-                    <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    <span class="text-gray-800">Cetak & Sablon Fisik</span>
-                </div>
-
-                <div class="space-y-1 border-b border-gray-200 pb-4">
-                    <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900">Layanan Cetak & Sablon Fisik</h1>
-                    <p class="text-xs md:text-sm text-gray-600 max-w-3xl">
-                        Klik pada foto atau judul kategori di bawah untuk langsung melihat <strong>Galeri Photo Hasil Kerja</strong> Kamboja Printing.
-                    </p>
-                </div>
-
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Kategori Item Contoh -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('sablon-kaos')">
-                        <div>
-                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-sablon-kaos" src="" alt="Sablon Kaos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); triggerCoverUpload('sablon-kaos')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-upload"></i> Upload
-                                </button>
-                            </div>
-                            <div class="p-5 space-y-2">
-                                <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Sablon Kaos</h3>
-                                <p class="text-xs text-gray-500 leading-relaxed">Sablon Plastisol & DTF kualitas distro pada bahan Cotton Combed adem.</p>
-                            </div>
-                        </div>
-                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
-                            Buka Galeri Photo Kaos <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </div>
-                    </div>
-
-                    <!-- Repeat Item Buku Yasin -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('buku-yasin')">
-                        <div>
-                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-buku-yasin" src="" alt="Buku Yasin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); triggerCoverUpload('buku-yasin')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-upload"></i> Upload
-                                </button>
-                            </div>
-                            <div class="p-5 space-y-2">
-                                <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Buku Yasin</h3>
-                                <p class="text-xs text-gray-500 leading-relaxed">Cetak Buku Yasin & Tahlil hardcover bludru sutra, poli emas mengkilap.</p>
-                            </div>
-                        </div>
-                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
-                            Buka Galeri Photo Yasin <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </div>
-                    </div>
-
-                    <!-- Repeat Sablon Karung -->
-                    <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer" onclick="navigateTo('sablon-karung')">
-                        <div>
-                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img id="img-cover-sablon-karung" src="" alt="Sablon Karung" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                <button onclick="event.stopPropagation(); triggerCoverUpload('sablon-karung')" class="admin-edit-btn hidden absolute top-2 right-2 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold px-2 py-1 rounded shadow-md z-10">
-                                    <i class="fa-solid fa-upload"></i> Upload
-                                </button>
-                            </div>
-                            <div class="p-5 space-y-2">
-                                <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">Sablon Karung</h3>
-                                <p class="text-xs text-gray-500 leading-relaxed">Sablon logo dan merek cetak karung beras, tepung, atau pakan ternak.</p>
-                            </div>
-                        </div>
-                        <div class="p-5 pt-0 text-xs font-bold text-blue-600 flex items-center gap-1">
-                            Buka Galeri Photo Karung <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ========================================== -->
-        <!-- HALAMAN 3: GALERI PHOTO SUBPAGE -->
-        <!-- ========================================== -->
+        <!-- HALAMAN GALERI SUBPAGE -->
         <section id="view-subpage" class="page-view py-10 bg-slate-50">
             <div class="max-w-6xl mx-auto px-6 space-y-6">
-                
-                <div class="flex items-center gap-2 text-xs font-semibold text-gray-400">
-                    <a href="javascript:void(0)" onclick="navigateTo('home')" class="hover:text-blue-600">Beranda</a>
-                    <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    <a href="javascript:void(0)" onclick="navigateTo('cetak-sablon')" class="hover:text-blue-600">Cetak & Sablon</a>
-                    <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    <span id="breadcrumb-current" class="text-gray-800">Galeri Photo</span>
-                </div>
+                <h2 id="subpage-title" class="text-2xl font-bold text-gray-900">Galeri Photo</h2>
 
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-4">
-                    <div class="space-y-1">
-                        <h2 id="subpage-title" class="text-2xl font-bold text-gray-900">Galeri Hasil Cetak</h2>
-                        <p id="subpage-desc" class="text-xs text-gray-600">Dokumentasi portofolio asli pengerjaan Kamboja Printing.</p>
-                    </div>
-                </div>
-
-                <!-- ADMIN PANEL UPLOAD FOTO LANGSUNG -->
+                <!-- ADMIN PANEL UPLOAD -->
                 <div id="admin-panel" class="hidden bg-white p-5 rounded-lg border border-blue-200 space-y-4 shadow-sm">
-                    <div class="flex items-center justify-between border-b border-blue-100 pb-2">
-                        <h4 class="font-bold text-sm text-blue-900 flex items-center gap-2">
-                            <i class="fa-solid fa-cloud-arrow-up text-blue-600"></i> Admin Panel: Upload Gambar Publik ke GitHub
-                        </h4>
-                        <button onclick="openGithubModal()" class="text-[11px] text-blue-600 hover:underline"><i class="fa-solid fa-gear"></i> Setup Token API</button>
-                    </div>
-
+                    <h4 class="font-bold text-sm text-blue-900 flex items-center gap-2">
+                        <i class="fa-solid fa-cloud-arrow-up text-blue-600"></i> Admin Upload Foto ke GitHub (Publik)
+                    </h4>
                     <form id="admin-add-form" class="space-y-4 text-xs font-medium">
                         <div class="grid sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-gray-600 mb-1">Judul / Spesifikasi</label>
-                                <input type="text" id="add-title" required class="w-full border border-gray-300 rounded px-3 py-2 outline-none focus:border-blue-500" placeholder="Contoh: Sablon Kaos Komunitas">
-                            </div>
-                            <div>
-                                <label class="block text-gray-600 mb-1">Deskripsi Singkat</label>
-                                <input type="text" id="add-desc" required class="w-full border border-gray-300 rounded px-3 py-2 outline-none focus:border-blue-500" placeholder="Bahan Cotton Combed 30s">
-                            </div>
+                            <input type="text" id="add-title" required class="w-full border rounded px-3 py-2" placeholder="Judul Foto">
+                            <input type="text" id="add-desc" required class="w-full border rounded px-3 py-2" placeholder="Keterangan foto">
                         </div>
-
-                        <div>
-                            <label class="block text-gray-600 mb-1">Pilih File Gambar dari HP / Laptop Anda</label>
-                            <input type="file" id="add-file" accept="image/*" required class="w-full border border-gray-300 rounded p-2 outline-none text-xs">
-                        </div>
-
-                        <div class="flex justify-end">
-                            <button type="submit" id="btn-upload-submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-2.5 rounded shadow transition-colors flex items-center gap-2">
-                                <i class="fa-solid fa-cloud-arrow-up text-xs"></i> Upload & Publish ke Publik
-                            </button>
-                        </div>
+                        <input type="file" id="add-file" accept="image/*" required class="w-full border rounded p-2">
+                        <button type="submit" id="btn-upload-submit" class="bg-blue-600 text-white font-bold px-6 py-2 rounded">
+                            Upload & Publish ke Publik
+                        </button>
                     </form>
                 </div>
 
-                <!-- Hidden Input untuk Ganti Sampul Kategori -->
                 <input type="file" id="cover-file-input" accept="image/*" class="hidden" onchange="handleCoverUpload(event)">
-
-                <!-- GRID FOTO PORTOFOLIO -->
                 <div id="subpage-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-                <div id="subpage-empty" class="hidden text-center py-16 bg-white rounded-xl border border-dashed border-gray-300 space-y-2">
-                    <i class="fa-regular fa-images text-4xl text-gray-300"></i>
-                    <p class="text-xs text-gray-500 font-medium">Belum ada foto portofolio di kategori ini.</p>
-                </div>
-
-                <div class="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p class="text-xs text-gray-600">
-                        Mau bikin produk persis seperti foto portofolio di atas? Tanya estimasi harga & diskon via WhatsApp:
-                    </p>
-                    <a id="subpage-wa-btn" href="https://wa.me/6289515881309" target="_blank" class="bg-[#030e2e] hover:bg-[#0a1b4d] text-white font-bold text-xs py-3 px-6 rounded-lg flex items-center gap-2 shadow-sm transition-colors whitespace-nowrap">
-                        <i class="fab fa-whatsapp text-emerald-400 text-sm"></i> Order Layanan Ini via WhatsApp
-                    </a>
-                </div>
-
             </div>
         </section>
-
     </main>
 
-    <footer class="bg-[#3c4043] text-gray-300 py-6 border-t border-gray-600 text-center text-xs space-y-1">
-        <p class="font-bold text-white">KAMBOJA Printing Pontianak</p>
-        <p class="text-gray-400 text-[11px]">Cetak, Sablon, Stempel & Produk Digital | WhatsApp: 089515881309 | Hak Cipta © 2026. Semua Hak Dilindungi.</p>
-    </footer>
-
     <script>
-        // Database Default
         const defaultCoverImages = {
             'cetak-sablon': 'https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=600',
             'desain-grafis': 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=600',
-            'produk-digital': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600',
-            'sablon-kaos': 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600',
-            'buku-yasin': 'https://images.unsplash.com/photo-1609599006353-e629ebfafecc?q=80&w=600',
-            'sablon-karung': 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=600'
-        };
-
-        const categoriesMap = {
-            'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
-            'buku-yasin': { title: 'Galeri Buku Yasin & Tahlil', desc: 'Portofolio cetak Buku Yasin hardcover bludru, emas, dan beludru mewah.' },
-            'sablon-karung': { title: 'Galeri Sablon Karung', desc: 'Hasil pengerjaan cetak merk/logo pada karung beras dan karung kemasan.' },
-            'desain-grafis': { title: 'Galeri Portofolio Desain Grafis', desc: 'Karya desain logo, re-branding, dan materi promosi visual.' },
-            'produk-digital': { title: 'Katalog Produk Digital', desc: 'Template desain, ebook panduan, dan aset grafis siap pakai.' }
+            'produk-digital': 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=600'
         };
 
         let portfolios = JSON.parse(localStorage.getItem('kamboja_p_data')) || [];
         let coverImages = JSON.parse(localStorage.getItem('kamboja_covers')) || defaultCoverImages;
         let currentCategory = 'home';
         let targetCoverCategory = null;
-
-        // GitHub Config
         let ghConfig = JSON.parse(localStorage.getItem('kamboja_gh_config')) || { token: '', username: '', repo: '' };
 
         function loadCoverImages() {
             Object.keys(coverImages).forEach(key => {
                 const imgElem = document.getElementById(`img-cover-${key}`);
-                if (imgElem) {
-                    imgElem.src = coverImages[key];
-                }
+                if (imgElem) imgElem.src = coverImages[key];
             });
         }
 
         function showToast(message, type = 'success') {
             const container = document.getElementById('toast-container');
             const toast = document.createElement('div');
-            toast.className = `p-4 rounded-lg shadow-lg text-white font-bold text-xs flex items-center gap-2 ${type === 'success' ? 'bg-emerald-600' : 'bg-red-600'}`;
-            toast.innerHTML = `<i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-triangle-exclamation'}"></i><span>${message}</span>`;
+            toast.className = `p-4 rounded-lg shadow-lg text-white font-bold text-xs ${type === 'success' ? 'bg-emerald-600' : 'bg-red-600'}`;
+            toast.textContent = message;
             container.appendChild(toast);
-            setTimeout(() => { toast.remove(); }, 3000);
+            setTimeout(() => toast.remove(), 3000);
         }
 
-        // GitHub Upload Core Function
+        // Upload Direct to GitHub API
         async function uploadFileToGithub(file) {
             if (!ghConfig.token || !ghConfig.username || !ghConfig.repo) {
                 openGithubModal();
-                throw new Error("Silakan atur Token & Repository GitHub Anda terlebih dahulu!");
+                throw new Error("Isi GitHub Token & Repo terlebih dahulu!");
             }
 
             const fileName = `img_${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.]/g, '')}`;
@@ -513,45 +236,24 @@
                     'Authorization': `token ${ghConfig.token}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    message: `Upload image: ${fileName}`,
-                    content: base64Content
-                })
+                body: JSON.stringify({ message: `Upload ${fileName}`, content: base64Content })
             });
 
-            if (!response.ok) {
-                const err = await response.json();
-                throw new Error(err.message || "Gagal mengunggah gambar ke GitHub.");
-            }
-
-            const data = await response.json();
-            // Return Raw URL Publik
+            if (!response.ok) throw new Error("Gagal mengunggah gambar ke server GitHub.");
             return `https://raw.githubusercontent.com/${ghConfig.username}/${ghConfig.repo}/main/${path}`;
         }
 
-        // Modals & Github Config Setup
-        function openGithubModal() {
-            document.getElementById('gh-token').value = ghConfig.token || '';
-            document.getElementById('gh-username').value = ghConfig.username || '';
-            document.getElementById('gh-repo').value = ghConfig.repo || '';
-            document.getElementById('github-modal').classList.remove('hidden');
-        }
-
-        function closeGithubModal() {
-            document.getElementById('github-modal').classList.add('hidden');
-        }
-
+        function openGithubModal() { document.getElementById('github-modal').classList.remove('hidden'); }
+        function closeGithubModal() { document.getElementById('github-modal').classList.add('hidden'); }
         function saveGithubSettings() {
             ghConfig.token = document.getElementById('gh-token').value.trim();
             ghConfig.username = document.getElementById('gh-username').value.trim();
             ghConfig.repo = document.getElementById('gh-repo').value.trim();
-
             localStorage.setItem('kamboja_gh_config', JSON.stringify(ghConfig));
             closeGithubModal();
-            showToast("Konfigurasi GitHub tersimpan!", "success");
+            showToast("Konfigurasi GitHub tersimpan!");
         }
 
-        // Trigger & Upload Sampul
         function triggerCoverUpload(catKey) {
             targetCoverCategory = catKey;
             document.getElementById('cover-file-input').click();
@@ -560,157 +262,79 @@
         async function handleCoverUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
-
             try {
-                showToast("Mengunggah gambar sampul ke GitHub...", "success");
-                const publicUrl = await uploadFileToGithub(file);
-                coverImages[targetCoverCategory] = publicUrl;
+                showToast("Mengunggah sampul...");
+                const url = await uploadFileToGithub(file);
+                coverImages[targetCoverCategory] = url;
                 localStorage.setItem('kamboja_covers', JSON.stringify(coverImages));
                 loadCoverImages();
-                showToast("Foto Sampul Berhasil Diperbarui & Dipublikasikan!", "success");
-            } catch (err) {
-                showToast(err.message, "error");
-            }
+                showToast("Sampul Berhasil Diperbarui secara Publik!");
+            } catch (err) { showToast(err.message, 'error'); }
         }
 
-        // Upload Form Foto Portofolio
         document.getElementById('admin-add-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const btn = document.getElementById('btn-upload-submit');
-            const fileInput = document.getElementById('add-file');
-            const file = fileInput.files[0];
-
-            if (!file) {
-                showToast("Pilih file gambar terlebih dahulu!", "error");
-                return;
-            }
-
+            const file = document.getElementById('add-file').files[0];
             try {
-                btn.disabled = true;
-                btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Mengunggah...`;
-
-                const publicUrl = await uploadFileToGithub(file);
-
-                const newItem = {
-                    id: Date.now(),
-                    category: currentCategory,
+                showToast("Mengunggah gambar ke publik...");
+                const url = await uploadFileToGithub(file);
+                portfolios.unshift({
+                    id: Date.now(), category: currentCategory,
                     title: document.getElementById('add-title').value,
                     desc: document.getElementById('add-desc').value,
-                    image: publicUrl
-                };
-
-                portfolios.unshift(newItem);
+                    image: url
+                });
                 localStorage.setItem('kamboja_p_data', JSON.stringify(portfolios));
-                
-                document.getElementById('admin-add-form').reset();
-                showToast("Berhasil Unggah Foto! Publik dapat melihatnya sekarang.", "success");
+                this.reset();
+                showToast("Berhasil dipublikasikan!");
                 renderGallery(currentCategory);
-            } catch (err) {
-                showToast(err.message, "error");
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = `<i class="fa-solid fa-cloud-arrow-up text-xs"></i> Upload & Publish ke Publik`;
-            }
+            } catch (err) { showToast(err.message, 'error'); }
         });
 
-        window.navigateTo = function(pageId) {
+        function navigateTo(pageId) {
             currentCategory = pageId;
-            document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
-
-            if (pageId === 'home') {
-                document.getElementById('view-home').classList.add('active');
-            } else if (pageId === 'cetak-sablon') {
-                document.getElementById('view-cetak-sablon').classList.add('active');
-            } else {
+            document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+            if (pageId === 'home') document.getElementById('view-home').classList.add('active');
+            else {
                 document.getElementById('view-subpage').classList.add('active');
-                const info = categoriesMap[pageId] || { title: 'Galeri Foto Hasil Cetak', desc: 'Portofolio Kamboja Printing' };
-                document.getElementById('breadcrumb-current').textContent = info.title;
-                document.getElementById('subpage-title').textContent = info.title;
-                document.getElementById('subpage-desc').textContent = info.desc;
-
-                const waMsg = `Halo Kamboja Printing, saya berminat pesan / tanya-tanya seputar: *${info.title}*. Boleh info harga?`;
-                document.getElementById('subpage-wa-btn').href = `https://wa.me/6289515881309?text=${encodeURIComponent(waMsg)}`;
-
                 renderGallery(pageId);
             }
-
-            window.scrollTo({ top: 0, behavior: 'instant' });
             checkAdminSession();
-        };
+        }
 
         function renderGallery(catKey) {
             const grid = document.getElementById('subpage-grid');
-            const emptyState = document.getElementById('subpage-empty');
             grid.innerHTML = '';
-
-            const filtered = portfolios.filter(p => p.category === catKey);
-            const isAdmin = localStorage.getItem('kamboja_admin_session') === 'active';
-
-            if (filtered.length === 0) {
-                emptyState.classList.remove('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                filtered.forEach(p => {
-                    const card = document.createElement('div');
-                    card.className = "bg-white border border-gray-200 overflow-hidden shadow-sm rounded-lg flex flex-col justify-between group";
-                    card.innerHTML = `
-                        <div>
-                            <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
-                                <img src="${p.image}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                                ${isAdmin ? `
-                                    <button onclick="deletePhoto(${p.id})" class="absolute top-3 right-3 bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center shadow hover:scale-105 z-10">
-                                        <i class="fa-solid fa-trash-can text-xs"></i>
-                                    </button>
-                                ` : ''}
-                            </div>
-                            <div class="p-4 space-y-1">
-                                <h4 class="font-bold text-xs text-gray-900 leading-snug">${p.title}</h4>
-                                <p class="text-[11px] text-gray-500 leading-relaxed">${p.desc}</p>
-                            </div>
+            portfolios.filter(p => p.category === catKey).forEach(p => {
+                grid.innerHTML += `
+                    <div class="bg-white border rounded shadow-sm overflow-hidden">
+                        <img src="${p.image}" class="w-full aspect-square object-cover">
+                        <div class="p-3">
+                            <h4 class="font-bold text-xs">${p.title}</h4>
+                            <p class="text-[11px] text-gray-500">${p.desc}</p>
                         </div>
-                    `;
-                    grid.appendChild(card);
-                });
-            }
+                    </div>
+                `;
+            });
         }
-
-        window.deletePhoto = function(id) {
-            if (confirm('Hapus foto ini dari galeri?')) {
-                portfolios = portfolios.filter(p => p.id !== id);
-                localStorage.setItem('kamboja_p_data', JSON.stringify(portfolios));
-                showToast('Foto telah dihapus.', 'success');
-                renderGallery(currentCategory);
-            }
-        };
 
         function checkAdminSession() {
             const isAdmin = localStorage.getItem('kamboja_admin_session') === 'active';
-            document.getElementById('admin-logout-btn').classList.toggle('hidden', !isAdmin);
+            document.querySelectorAll('.admin-edit-btn').forEach(b => b.classList.toggle('hidden', !isAdmin));
+            document.getElementById('admin-panel').classList.toggle('hidden', !isAdmin);
             document.getElementById('admin-gh-btn').classList.toggle('hidden', !isAdmin);
-            
-            document.querySelectorAll('.admin-edit-btn').forEach(btn => btn.classList.toggle('hidden', !isAdmin));
-
-            if (isAdmin && currentCategory !== 'home' && currentCategory !== 'cetak-sablon') {
-                document.getElementById('admin-panel').classList.remove('hidden');
-            } else {
-                document.getElementById('admin-panel').classList.add('hidden');
-            }
+            document.getElementById('admin-logout-btn').classList.toggle('hidden', !isAdmin);
         }
 
-        window.logoutAdmin = function() {
+        function logoutAdmin() {
             localStorage.removeItem('kamboja_admin_session');
-            showToast('Keluar dari Mode Admin.', 'success');
             checkAdminSession();
-            navigateTo(currentCategory);
-        };
+        }
 
         window.onload = function() {
             loadCoverImages();
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('admin') === 'kambojamaju') {
+            if (new URLSearchParams(window.location.search).get('admin') === 'kambojamaju') {
                 localStorage.setItem('kamboja_admin_session', 'active');
-                showToast('Mode Admin Aktif!', 'success');
-                window.history.replaceState({}, document.title, window.location.pathname);
             }
             navigateTo('home');
         };
