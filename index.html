@@ -455,6 +455,13 @@
         <p class="text-gray-400 text-[11px]">Cetak, Sablon, Stempel & Produk Digital | WhatsApp: 089515881309</p>
     </footer>
 
+    <!-- ANCHOR KHUSUS DUA SISIPAN UNTUK MEMUDAHKAN GITHUB API -->
+    <!-- GALLERIES_START -->
+    <script>
+    const defaultPortfolios = [];
+    </script>
+    <!-- GALLERIES_END -->
+
     <script>
         const categoriesMap = {
             'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
@@ -468,58 +475,65 @@
             'produk-digital': { title: 'Katalog Produk Digital', desc: 'Template desain, ebook panduan, dan aset grafis siap pakai.' }
         };
 
-        let portfolios = [];
-        let currentCategory = 'home';
-
-        // 1. FUNGSI AMBIL DATA PUBLIK DARI FILE galeri.json DENGAN NO-CACHE
-        async function loadPublicGalleryData() {
+        // INTEGRASI DUA DATA: BISA DI BUKA DI LOKAL DAN BISA TAMPIL DI PUBLIK
+        let portfolios = defaultPortfolios;
+        let localStore = localStorage.getItem('kamboja_p_data');
+        if (localStore) {
             try {
-                const res = await fetch(`galeri.json?t=${Date.now()}`);
-                if (res.ok) {
-                    portfolios = await res.json();
-                } else {
-                    portfolios = [];
+                let parsed = JSON.parse(localStore);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    // Gabungkan data tanpa duplikat
+                    let combined = [...parsed];
+                    defaultPortfolios.forEach(dp => {
+                        if(!combined.some(c => c.id === dp.id)) combined.push(dp);
+                    });
+                    portfolios = combined;
                 }
-            } catch (e) {
-                console.error("Gagal membaca galeri.json", e);
-                portfolios = [];
-            }
+            } catch(e){}
         }
 
-        // 2. FUNGSI UPDATE SINKRONISASI FILE galeri.json VIA API GITHUB
-        async function updateJsonOnGithub() {
+        let currentCategory = 'home';
+
+        // UPDATE GITHUB DENGAN TEKNIK ANCHOR HTML (DIJAMIN 100% TERGANTI SECARA PRESISI)
+        async function updateHtmlOnGithub() {
             const saved = localStorage.getItem('kamboja_gh_config');
             if (!saved) return;
             const { token, username, repo } = JSON.parse(saved);
             if (!token || !username || !repo) return;
 
             try {
-                showToast('Menyinkronkan galeri.json ke GitHub...', 'success');
-                const fileUrl = `https://api.github.com/repos/${username}/${repo}/contents/galeri.json`;
+                showToast('Menyinkronkan data galeri ke GitHub...', 'success');
+                const fileUrl = `https://api.github.com/repos/${username}/${repo}/contents/index.html`;
 
-                let sha = "";
                 const getFileResponse = await fetch(fileUrl, {
                     headers: { 'Authorization': `token ${token}` }
                 });
 
-                if (getFileResponse.ok) {
-                    const fileData = await getFileResponse.json();
-                    sha = fileData.sha;
+                if (!getFileResponse.ok) return;
+
+                const fileData = await getFileResponse.json();
+                const sha = fileData.sha;
+
+                let htmlContent = decodeURIComponent(escape(atob(fileData.content)));
+                
+                // PENGGANTIAN PRESISI DENGAN TAG ANCHOR
+                const newScriptBlock = `<!-- GALLERIES_START -->\n    <script>\n    const defaultPortfolios = ${JSON.stringify(portfolios, null, 4)};\n    <\/script>\n    <!-- GALLERIES_END -->`;
+                
+                const anchorRegex = /<!-- GALLERIES_START -->[\s\S]*?<!-- GALLERIES_END -->/;
+                if(anchorRegex.test(htmlContent)) {
+                    htmlContent = htmlContent.replace(anchorRegex, newScriptBlock);
+                } else {
+                    // Fallback jika tag anchor terhapus
+                    const regexOld = /const\s+defaultPortfolios\s*=\s*\[[\s\S]*?\];/;
+                    htmlContent = htmlContent.replace(regexOld, `const defaultPortfolios = ${JSON.stringify(portfolios, null, 4)};`);
                 }
 
-                const jsonString = JSON.stringify(portfolios, null, 2);
-                const utf8Bytes = new TextEncoder().encode(jsonString);
+                const utf8Bytes = new TextEncoder().encode(htmlContent);
                 let binaryStr = '';
                 for (let i = 0; i < utf8Bytes.length; i++) {
                     binaryStr += String.fromCharCode(utf8Bytes[i]);
                 }
                 const encodedContent = btoa(binaryStr);
-
-                const putBody = {
-                    message: 'Update galeri.json dari Admin Panel',
-                    content: encodedContent
-                };
-                if (sha) putBody.sha = sha;
 
                 const putRes = await fetch(fileUrl, {
                     method: 'PUT',
@@ -527,15 +541,21 @@
                         'Authorization': `token ${token}`,
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(putBody)
+                    body: JSON.stringify({
+                        message: 'Update galeri portofolio publik',
+                        content: encodedContent,
+                        sha: sha
+                    })
                 });
 
-                if (!putRes.ok) throw new Error("Gagal update file galeri.json");
-
-                showToast('SUKSES! Foto berhasil dipublish ke publik.', 'success');
+                if(putRes.ok) {
+                    showToast('SUKSES! Foto aktif & muncul di publik!', 'success');
+                } else {
+                    showToast('Gagal update index.html', 'error');
+                }
             } catch (err) {
-                console.error('Gagal Sync GitHub JSON:', err);
-                showToast(`Gagal sync: ${err.message}`, 'error');
+                console.error('Gagal Sync GitHub:', err);
+                showToast('Gagal menyinkronkan data ke GitHub', 'error');
             }
         }
 
@@ -548,7 +568,7 @@
             setTimeout(() => { toast.remove(); }, 3500);
         }
 
-        window.navigateTo = async function(pageId, isBackAction = false) {
+        window.navigateTo = function(pageId, isBackAction = false) {
             currentCategory = pageId;
 
             if (!isBackAction) {
@@ -573,7 +593,6 @@
                 const waMsg = `Halo Kamboja Printing, saya berminat pesan / tanya-tanya seputar: *${info.title}*. Boleh info harga?`;
                 document.getElementById('subpage-wa-btn').href = `https://wa.me/6289515881309?text=${encodeURIComponent(waMsg)}`;
 
-                await loadPublicGalleryData();
                 renderGallery(pageId);
             }
 
@@ -711,8 +730,6 @@
                     return;
                 }
 
-                await loadPublicGalleryData();
-
                 finalUrls.forEach((url, index) => {
                     portfolios.unshift({
                         id: Date.now() + index,
@@ -723,11 +740,12 @@
                     });
                 });
 
+                localStorage.setItem('kamboja_p_data', JSON.stringify(portfolios));
                 document.getElementById('admin-add-form').reset();
-                showToast(`Memperbarui galeri publik...`, 'success');
+                showToast(`Memperbarui galeri...`, 'success');
                 renderGallery(currentCategory);
 
-                await updateJsonOnGithub();
+                await updateHtmlOnGithub();
 
             } catch (error) {
                 alert(`Error: ${error.message}`);
@@ -739,11 +757,12 @@
         });
 
         window.deletePhoto = async function(id) {
-            if (confirm('Hapus foto ini dari galeri publik?')) {
+            if (confirm('Hapus foto ini dari galeri?')) {
                 portfolios = portfolios.filter(p => p.id !== id);
-                showToast('Menghapus dari publik...', 'success');
+                localStorage.setItem('kamboja_p_data', JSON.stringify(portfolios));
+                showToast('Foto telah dihapus.', 'success');
                 renderGallery(currentCategory);
-                await updateJsonOnGithub();
+                await updateHtmlOnGithub();
             }
         };
 
@@ -801,7 +820,7 @@
             navigateTo(currentCategory, true);
         };
 
-        window.onload = async function() {
+        window.onload = function() {
             loadGithubSettings();
             
             const urlParams = new URLSearchParams(window.location.search);
@@ -813,7 +832,7 @@
 
             const initialPage = window.location.hash ? window.location.hash.replace('#', '') : 'home';
             history.replaceState({ page: initialPage }, "", "#" + initialPage);
-            await navigateTo(initialPage, true);
+            navigateTo(initialPage, true);
         };
     </script>
 </body>
