@@ -483,6 +483,27 @@
                                 <label class="block text-gray-700 font-bold mb-1">Deskripsi Ringkas:</label>
                                 <textarea id="add-desc" rows="2" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" placeholder="Contoh: Sablon Plastisol & DTF kualitas distro pada bahan Cotton Combed adem."></textarea>
                             </div>
+                            <!-- INPUT TAMBAHAN MODE ADMIN KATALOG PRODUK DIGITAL -->
+                            <div id="extra-digital-admin-fields" class="space-y-3 pt-2 border-t border-gray-100 hidden">
+                                <div class="grid sm:grid-cols-2 gap-3">
+                                    <div>
+                                        <label class="block text-gray-700 font-bold mb-1">Harga Normal (Opsional / Dicoret):</label>
+                                        <input type="text" id="add-price-old" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" placeholder="Contoh: IDR 79,000">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-bold mb-1">Harga Promo / Berlaku:</label>
+                                        <input type="text" id="add-price" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" placeholder="Contoh: IDR 49,000">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-bold mb-1">Link URL Payment (Tombol BUY NOW):</label>
+                                    <input type="url" id="add-payment-url" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" placeholder="https://mayar.link/xxx atau https://wa.me/...">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-bold mb-1">Deskripsi Lengkap (Panjang Teks Bebas):</label>
+                                    <textarea id="add-full-desc" rows="6" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" placeholder="Jujur, kapan terakhir kali pikiran Anda benar-benar beristirahat?&#10;&#10;Di zaman modern yang serba cepat ini..."></textarea>
+                                </div>
+                            </div>
                         </div>
 
                         <div>
@@ -523,6 +544,62 @@
             </div>
         </section>
 
+        <!-- HALAMAN DETAIL PRODUK DIGITAL (SESUAI GAMBAR LAMPIRAN) -->
+        <section id="view-digital-detail" class="page-view py-8 bg-white">
+            <div class="max-w-xl mx-auto px-4 space-y-6">
+                <!-- Navigasi Atas Sederhana / Header Gambar -->
+                <div class="flex items-center justify-between text-gray-700">
+                    <button onclick="navigateTo('produk-digital')" class="p-2 hover:bg-gray-100 rounded-full transition-colors">
+                        <i class="fa-solid fa-arrow-left text-lg"></i>
+                    </button>
+                    <div class="flex items-center gap-4 text-lg">
+                        <button onclick="navigator.share ? navigator.share({title: document.getElementById('digital-detail-title').innerText, url: window.location.href}) : alert('URL disalin!')" class="hover:text-blue-600">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                        <div class="relative">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="absolute -top-2 -right-2 bg-emerald-500 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gambar Cover Mockup -->
+                <div class="w-full rounded-lg overflow-hidden shadow-sm border border-gray-100 bg-gray-50">
+                    <img id="digital-detail-image" src="" alt="Cover Produk" class="w-full h-auto object-cover max-h-[450px]">
+                </div>
+
+                <div class="flex justify-center">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                </div>
+
+                <!-- Judul & Harga -->
+                <div class="space-y-3">
+                    <div class="flex justify-between items-start gap-4">
+                        <h1 id="digital-detail-title" class="text-lg md:text-xl font-medium text-gray-900 leading-snug"></h1>
+                        <div class="text-right whitespace-nowrap">
+                            <p id="digital-detail-price-old" class="text-xs text-emerald-600/70 line-through font-semibold"></p>
+                            <p id="digital-detail-price" class="text-sm font-bold text-emerald-600"></p>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-4">
+                        <p class="text-[11px] font-bold text-gray-400 tracking-wider uppercase mb-2">DESCRIPTION</p>
+                        <div id="digital-detail-full-desc" class="text-xs text-gray-700 leading-relaxed whitespace-pre-line space-y-3 font-normal"></div>
+                    </div>
+                </div>
+
+                <!-- Action Button BUY NOW -->
+                <div class="pt-6 flex items-center gap-3">
+                    <button class="p-3 border border-emerald-500 text-emerald-600 rounded-lg hover:bg-emerald-50 transition-colors">
+                        <i class="fa-solid fa-cart-plus text-base"></i>
+                    </button>
+                    <a id="digital-detail-buy-btn" href="#" target="_blank" class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-center py-3 px-6 rounded-lg shadow-sm transition-colors text-sm">
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- TOMBOL PINTAS ADMIN -->
@@ -542,8 +619,12 @@
         "id": 1784715701769,
         "category": "produk-digital",
         "title": "Katalog Produk Digital",
-        "itemTitle": "E-Book Happiness Meditation",
+        "itemTitle": "E-Book Happiness Meditation: Panduan Meditasi Praktis (5 Putaran Napas)",
         "itemDesc": "Panduan Meditasi Praktis (5 Putaran Napas) untuk kembali merasa Aman, Tenang dan Bahagia",
+        "priceOld": "IDR 79,000",
+        "price": "IDR 49,000",
+        "paymentUrl": "https://wa.me/6289515881309?text=Halo%20Kamboja%20Printing%2C%20saya%20mau%20beli%20E-Book%20Happiness%20Meditation",
+        "fullDesc": "Jujur, kapan terakhir kali pikiran Anda benar-benar beristirahat?\n\nDi zaman modern yang serba cepat ini, banyak dari kita mengalami kelelahan mental kronis (mental fatigue). Kita bekerja keras mengejar uang demi rasa aman, mengejar jabatan demi rasa tenang dan bahagia, namun ironisnya rasa bahagia itu justru makin menjauh.\n\nE-Book ini hadir sebagai panduan praktis untuk membantu Anda kembali merasakan ketenangan jiwa hanya dalam 5 putaran napas yang mudah dipraktikkan kapan saja dan di mana saja.",
         "image": "upload/1784715697904_Mock_up_Happiness_Meditation.png",
         "desc": "Template desain, ebook panduan, dan aset grafis siap pakai."
     },
@@ -614,7 +695,7 @@
         "id": 1784710091684,
         "category": "promosi-reklame",
         "title": "Galeri Promosi & Reklame",
-        "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784710089595_e00f17f7-8f3d-44de-8270-b9c2a176d568.jpg",
+        "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/178470989595_e00f17f7-8f3d-44de-8270-b9c2a176d568.jpg",
         "desc": "Dokumentasi spanduk banner, neonbox, plang toko, stiker, dan baliho."
     },
     {
@@ -1370,6 +1451,9 @@
                 document.getElementById('view-cetak-sablon').classList.add('active');
             } else if (pageId === 'desain-grafis') {
                 document.getElementById('view-desain-grafis').classList.add('active');
+            } else if (pageId.startsWith('digital-detail-')) {
+                const prodId = parseInt(pageId.replace('digital-detail-', ''));
+                showDigitalProductDetail(prodId);
             } else {
                 const subpage = document.getElementById('view-subpage');
                 subpage.classList.add('active');
@@ -1379,6 +1463,16 @@
                 document.getElementById('subpage-title').textContent = info.title;
                 document.getElementById('subpage-desc').textContent = info.desc;
 
+                // TOGGLE TAMPILAN FIELD EXTRA DI MODE ADMIN UNTUK PRODUK DIGITAL
+                const extraFields = document.getElementById('extra-digital-admin-fields');
+                if (extraFields) {
+                    if (pageId === 'produk-digital') {
+                        extraFields.classList.remove('hidden');
+                    } else {
+                        extraFields.classList.add('hidden');
+                    }
+                }
+
                 const waMsg = `Halo Kamboja Printing, saya berminat pesan / tanya-tanya seputar: *${info.title}*. Boleh info harga?`;
                 document.getElementById('subpage-wa-btn').href = `https://wa.me/6289515881309?text=${encodeURIComponent(waMsg)}`;
 
@@ -1387,6 +1481,25 @@
 
             window.scrollTo({ top: 0, behavior: 'instant' });
             checkAdminSession();
+        };
+
+        // Buka Halaman Detail Produk Digital (Sesuai Gambar Lampiran)
+        window.showDigitalProductDetail = function(id) {
+            const item = portfolios.find(p => p.id === id);
+            if (!item) return;
+
+            document.getElementById('view-digital-detail').classList.add('active');
+
+            document.getElementById('digital-detail-image').src = item.image;
+            document.getElementById('digital-detail-title').textContent = item.itemTitle || item.title;
+            document.getElementById('digital-detail-price').textContent = item.price || 'IDR 49,000';
+            document.getElementById('digital-detail-price-old').textContent = item.priceOld || 'IDR 79,000';
+            
+            const fullDescContainer = document.getElementById('digital-detail-full-desc');
+            fullDescContainer.innerText = item.fullDesc || item.itemDesc || item.desc || '';
+
+            const buyBtn = document.getElementById('digital-detail-buy-btn');
+            buyBtn.href = item.paymentUrl || 'https://wa.me/6289515881309?text=Halo%20Kamboja%20Printing%2C%20saya%20mau%20beli%20' + encodeURIComponent(item.itemTitle || item.title);
         };
 
         window.addEventListener('popstate', function(event) {
@@ -1414,18 +1527,18 @@
                     
                     // RENDER HASIL TAMPILAN SESUAI GAMBAR LAMPIRAN (ADA JUDUL & DESKRIPSI)
                     if (p.itemTitle || p.itemDesc || catKey === 'produk-digital') {
-                        card.className = "bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group";
+                        card.className = "bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer";
                         card.innerHTML = `
                             <div>
-                                <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100">
+                                <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100" onclick="navigateTo('digital-detail-${p.id}')">
                                     <img src="${p.image}" alt="${p.itemTitle || p.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';">
                                     ${isAdmin ? `
-                                        <button onclick="deletePhoto(${p.id})" class="absolute top-3 right-3 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105 z-10" title="Hapus Foto">
+                                        <button onclick="event.stopPropagation(); deletePhoto(${p.id});" class="absolute top-3 right-3 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105 z-10" title="Hapus Foto">
                                             <i class="fa-solid fa-trash-can text-xs"></i>
                                         </button>
                                     ` : ''}
                                 </div>
-                                <div class="p-5 space-y-2">
+                                <div class="p-5 space-y-2" onclick="navigateTo('digital-detail-${p.id}')">
                                     <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">${p.itemTitle || p.title}</h3>
                                     <p class="text-xs text-gray-500 leading-relaxed">${p.itemDesc || p.desc}</p>
                                 </div>
@@ -1521,6 +1634,11 @@
             const inputTitle = document.getElementById('add-title').value.trim();
             const inputDesc = document.getElementById('add-desc').value.trim();
 
+            const inputPriceOld = document.getElementById('add-price-old') ? document.getElementById('add-price-old').value.trim() : '';
+            const inputPrice = document.getElementById('add-price') ? document.getElementById('add-price').value.trim() : '';
+            const inputPaymentUrl = document.getElementById('add-payment-url') ? document.getElementById('add-payment-url').value.trim() : '';
+            const inputFullDesc = document.getElementById('add-full-desc') ? document.getElementById('add-full-desc').value.trim() : '';
+
             const info = categoriesMap[currentCategory] || { title: 'Hasil Cetak', desc: 'Portofolio Kamboja Printing' };
             let finalUrls = [];
 
@@ -1553,6 +1671,10 @@
                         title: info.title,
                         itemTitle: inputTitle || info.title,
                         itemDesc: inputDesc || info.desc,
+                        priceOld: inputPriceOld,
+                        price: inputPrice,
+                        paymentUrl: inputPaymentUrl,
+                        fullDesc: inputFullDesc,
                         image: url,
                         desc: info.desc
                     });
@@ -1600,7 +1722,7 @@
                 adminTriggerBtn.classList.add('flex');
                 quickText.textContent = "Mode Admin (Keluar)";
 
-                if (currentCategory !== 'home' && currentCategory !== 'cetak-sablon' && currentCategory !== 'desain-grafis') {
+                if (currentCategory !== 'home' && currentCategory !== 'cetak-sablon' && currentCategory !== 'desain-grafis' && !currentCategory.startsWith('digital-detail-')) {
                     adminUploadPanel.classList.remove('hidden');
                 } else {
                     adminUploadPanel.classList.add('hidden');
@@ -1655,4 +1777,3 @@
     </script>
 </body>
 </html>
-
