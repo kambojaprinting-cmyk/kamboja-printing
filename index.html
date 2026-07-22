@@ -470,145 +470,75 @@
 
     <script>
         // VARIABLE AVAL PORTOFOLIO UTAMA (TER-SYNC KE GITHUB)
-        const defaultPortfolios = [
+       const defaultPortfolios = [
     {
         "id": 1784706411747,
         "category": "cetak-dokumen",
         "title": "Galeri Print Dokumen & Kantor",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706409061_f02ad8eb-91ab-4788-82f5-f62652e6028e.jpg",
+        "image": "upload/1784706409061_f02ad8eb-91ab-4788-82f5-f62652e6028e.jpg",
         "desc": "Hasil cetak brosur, nota NCR, sertifikat, kartu nama, dan berkas kantor."
     },
     {
         "id": 1784706391447,
         "category": "promosi-reklame",
         "title": "Galeri Promosi & Reklame",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706389637_hpshop_0.jpg",
+        "image": "upload/1784706389637_hpshop_0.jpg",
         "desc": "Dokumentasi spanduk banner, neonbox, plang toko, stiker, dan baliho."
     },
     {
         "id": 1784706358314,
         "category": "bendera",
         "title": "Galeri Bendera Custom",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706355601_9c4f9e87-d7db-45b5-b911-28d30dfdfecd.jpg",
+        "image": "upload/1784706355601_9c4f9e87-d7db-45b5-b911-28d30dfdfecd.jpg",
         "desc": "Hasil print bendera kain untuk instansi, partai, suporter, dan spanduk kain."
     },
     {
         "id": 1784706330383,
         "category": "stempel",
         "title": "Galeri Stempel Otomatis",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706328348_stempel-8.jpg",
+        "image": "upload/1784706328348_stempel-8.jpg",
         "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
     },
     {
         "id": 1784706302657,
         "category": "sablon-karung",
         "title": "Galeri Sablon Karung",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706300277_7b9492d6-0d90-444b-93fc-f9c218edda65.jpg",
+        "image": "upload/1784706300277_7b9492d6-0d90-444b-93fc-f9c218edda65.jpg",
         "desc": "Hasil pengerjaan cetak merk/logo pada karung beras dan karung kemasan."
     },
     {
         "id": 1784706270379,
         "category": "buku-yasin",
         "title": "Galeri Buku Yasin & Tahlil",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706267970_4481f1ec-5b36-4a94-8232-712075eec3d2.jpg",
+        "image": "upload/1784706267970_4481f1ec-5b36-4a94-8232-712075eec3d2.jpg",
         "desc": "Portofolio cetak Buku Yasin hardcover bludru, emas, dan beludru mewah."
     },
     {
         "id": 1784706245139,
         "category": "sablon-kaos",
         "title": "Galeri Sablon Kaos",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706242246_1781664582413.jpg",
+        "image": "upload/1784706242246_1781664582413.jpg",
         "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
     },
     {
         "id": 1784706218450,
         "category": "sablon-kaos",
         "title": "Galeri Sablon Kaos",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706214998_1781664582403.jpeg",
+        "image": "upload/1784706214998_1781664582403.jpeg",
         "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
     },
     {
         "id": 1784706191507,
         "category": "sablon-kaos",
         "title": "Galeri Sablon Kaos",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706187293_5.jpg",
+        "image": "upload/1784706187293_5.jpg",
         "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
     },
     {
         "id": 1784706170636,
         "category": "sablon-kaos",
         "title": "Galeri Sablon Kaos",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784706168294_4.jpg",
-        "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-    },
-    {
-        "id": 1784705023660,
-        "category": "cetak-dokumen",
-        "title": "Galeri Print Dokumen & Kantor",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784705021588_1810e7f4-0799-429b-8eba-33b04cce3b24.jpg",
-        "desc": "Hasil cetak brosur, nota NCR, sertifikat, kartu nama, dan berkas kantor."
-    },
-    {
-        "id": 1784704990085,
-        "category": "promosi-reklame",
-        "title": "Galeri Promosi & Reklame",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704988470_bako-2.jpg",
-        "desc": "Dokumentasi spanduk banner, neonbox, plang toko, stiker, dan baliho."
-    },
-    {
-        "id": 1784704963872,
-        "category": "bendera",
-        "title": "Galeri Bendera Custom",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704961925_4ee4d096-aabf-473b-b893-871a9753d9d5.jpg",
-        "desc": "Hasil print bendera kain untuk instansi, partai, suporter, dan spanduk kain."
-    },
-    {
-        "id": 1784704943453,
-        "category": "stempel",
-        "title": "Galeri Stempel Otomatis",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704941851_stempel_1.jpg",
-        "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-    },
-    {
-        "id": 1784704926255,
-        "category": "sablon-karung",
-        "title": "Galeri Sablon Karung",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704924437_5fca2d32-c955-4019-816b-1969821bab3d.jpg",
-        "desc": "Hasil pengerjaan cetak merk/logo pada karung beras dan karung kemasan."
-    },
-    {
-        "id": 1784704908256,
-        "category": "buku-yasin",
-        "title": "Galeri Buku Yasin & Tahlil",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704903100_98096c38-1ef9-4863-b51b-d15deef137f3.txt.jpg",
-        "desc": "Portofolio cetak Buku Yasin hardcover bludru, emas, dan beludru mewah."
-    },
-    {
-        "id": 1784704843930,
-        "category": "sablon-kaos",
-        "title": "Galeri Sablon Kaos",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704841925_3.jpg",
-        "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-    },
-    {
-        "id": 1784704828986,
-        "category": "sablon-kaos",
-        "title": "Galeri Sablon Kaos",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704827220_2.jpg",
-        "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-    },
-    {
-        "id": 1784704815365,
-        "category": "sablon-kaos",
-        "title": "Galeri Sablon Kaos",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704813496_02.jpg",
-        "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-    },
-    {
-        "id": 1784704802215,
-        "category": "sablon-kaos",
-        "title": "Galeri Sablon Kaos",
-        "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784704798490_1.jpg",
+        "image": "upload/1784706168294_4.jpg",
         "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
     }
 ];
