@@ -425,7 +425,7 @@
 
                         <div class="border-t border-gray-100 pt-3">
                             <label class="block text-gray-700 font-bold mb-1">Atau Tempel Direct Link Gambar:</label>
-                            <textarea id="add-urls" rows="2" class="w-full border border-gray-300 rounded p-2.5 outline-none focus:border-blue-500 font-mono text-[11px]" placeholder="https://cdn.jsdelivr.net/..."></textarea>
+                            <textarea id="add-urls" rows="2" class="w-full border border-gray-300 rounded p-2.5 outline-none focus:border-blue-500 font-mono text-[11px]" placeholder="upload/foto.jpg ATAU https://..."></textarea>
                         </div>
 
                         <div class="flex justify-end pt-2">
@@ -469,72 +469,8 @@
     </footer>
 
     <script>
-        // VARIABLE AVAL PORTOFOLIO UTAMA (TER-SYNC LANGSUNG KE GITHUB NATIVE)
-        const defaultPortfolios = [
-          {
-                    "id": 1784701998066,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784701988758_1.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784701946840,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784701944638_stempel-4.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784701936326,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784701934315_stempel_3.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784701924715,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784701922316_stempel_2.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784701906680,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784701904066_stempel_1.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784700210558,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784700208422_988d632e-fd61-4723-a067-1ac2beebdaee.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784700192353,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784700190281_63cb2cf3-7e67-4ddc-9ef3-561e737c4864.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784700175696,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784700173513_a891b110-b11f-4f9f-b385-4bcf280bad4b.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784700156630,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://cdn.jsdelivr.net/gh/kambojaprinting-cmyk/kamboja-printing@main/upload/1784700154079_4b215817-eea5-454f-9b50-a09380cb7336.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          }
-];
+        // VARIABLE AVAL PORTOFOLIO UTAMA (NATIVE SYNC KE GITHUB)
+        const defaultPortfolios = [];
 
         const categoriesMap = {
             'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
@@ -548,13 +484,13 @@
             'produk-digital': { title: 'Katalog Produk Digital', desc: 'Template desain, ebook panduan, dan aset grafis siap pakai.' }
         };
 
-        // KUNCI REVISI PERTAMA: Menggabungkan data server dan localStorage agar tidak bentrok
+        // KUNCI PERBAIKAN 1: Penggabungan data yang aman agar publik selalu membaca defaultPortfolios
         let portfolios = defaultPortfolios;
         let localData = localStorage.getItem('kamboja_p_data');
         if (localData) {
             try {
                 let parsed = JSON.parse(localData);
-                if (Array.isArray(parsed) && parsed.length > defaultPortfolios.length) {
+                if (Array.isArray(parsed) && parsed.length >= defaultPortfolios.length) {
                     portfolios = parsed;
                 }
             } catch(e){}
@@ -583,8 +519,8 @@
 
                 let htmlContent = decodeURIComponent(escape(atob(fileData.content)));
                 
-                // KUNCI REVISI KEDUA: Regex aman presisi tinggi untuk memperbarui isi defaultPortfolios
-                const jsonStr = JSON.stringify(portfolios, null, 10);
+                // KUNCI PERBAIKAN 2: Replacing Regex Universal Presisi Tinggi
+                const jsonStr = JSON.stringify(portfolios, null, 4);
                 const targetRegex = /const\s+defaultPortfolios\s*=\s*\[[\s\S]*?\];/;
                 htmlContent = htmlContent.replace(targetRegex, `const defaultPortfolios = ${jsonStr};`);
 
@@ -602,13 +538,13 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        message: 'Update galeri portofolio otomatis',
+                        message: 'Update galeri defaultPortfolios publik',
                         content: encodedContent,
                         sha: sha
                     })
                 });
 
-                showToast('SUKSES! Galeri diperbarui & aktif publik.', 'success');
+                showToast('SUKSES! Galeri diperbarui & siap tayang publik.', 'success');
             } catch (err) {
                 console.error('Gagal Sync GitHub:', err);
                 showToast('Gagal menyinkronkan index.html ke GitHub', 'error');
@@ -718,13 +654,13 @@
             }
         }
 
-        // KUNCI REVISI KETIGA: Format CDN jsDelivr Publik Instan Anti Blokir
+        // KUNCI PERBAIKAN 3: Menggunakan Relative Path GitHub Native untuk Tampilan Publik Bebas Blokir
         async function uploadFileToGithub(file) {
             const saved = localStorage.getItem('kamboja_gh_config');
             if(!saved) throw new Error("Isi Pengaturan GitHub terlebih dahulu!");
             const { token, username, repo, dir } = JSON.parse(saved);
 
-            const cleanDir = dir ? dir : '';
+            const cleanDir = dir ? dir : 'upload/';
             const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
             const filePath = `${cleanDir}${fileName}`;
 
@@ -753,8 +689,8 @@
                 throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
             }
 
-            // MENGGUNAKAN JSDELIVR CDN GLOBAL
-            return `https://cdn.jsdelivr.net/gh/${username}/${repo}@main/${filePath}`;
+            // MENGGUNAKAN RELATIVE PATH UNTUK NATIVE GITHUB PAGES SUPPORT
+            return `${cleanDir}${fileName}`;
         }
 
         document.getElementById('admin-add-form').addEventListener('submit', async function(e) {
