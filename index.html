@@ -458,7 +458,7 @@
 
     </main>
 
-    <!-- TOMBOL PINTAS ADMIN (DISEMBUNYIKAN DI URL UTAMA / TAMPIL BERSIH) -->
+    <!-- TOMBOL PINTAS ADMIN -->
     <button id="admin-trigger-btn" onclick="toggleAdminMode()" class="hidden fixed bottom-4 right-4 bg-slate-900 text-white hover:bg-black text-[11px] font-bold px-3 py-2 rounded-full shadow-2xl z-[90] items-center gap-2 border border-slate-700">
         <i class="fa-solid fa-user-shield text-yellow-400"></i> <span id="quick-admin-text">Login Admin</span>
     </button>
@@ -469,22 +469,8 @@
     </footer>
 
     <script>
-        const defaultPortfolios = [
-          {
-                    "id": 1784692022211,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "upload/1784692019599_stempel_1.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "images/kaos.jpg",
-                    "desc": "Portofolio Kamboja Printing"
-          }
-];
+        // Data portofolio awal/bawaan (jika kosong di browser, data ini dipakai)
+        const defaultPortfolios = [];
 
         const categoriesMap = {
             'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
@@ -498,7 +484,9 @@
             'produk-digital': { title: 'Katalog Produk Digital', desc: 'Template desain, ebook panduan, dan aset grafis siap pakai.' }
         };
 
-        let portfolios = JSON.parse(localStorage.getItem('kamboja_p_data')) || defaultPortfolios;
+        // PERBAIKAN UTAMA: Ambil dari localStorage, jika belum ada/kosong, gunakan defaultPortfolios
+        let savedPortfolios = JSON.parse(localStorage.getItem('kamboja_p_data'));
+        let portfolios = (Array.isArray(savedPortfolios)) ? savedPortfolios : defaultPortfolios;
         let currentCategory = 'home';
 
         async function updateHtmlOnGithub() {
