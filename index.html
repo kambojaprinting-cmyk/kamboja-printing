@@ -1072,8 +1072,8 @@
         throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
     }
 
-    // PAKAI RELATIVE PATH AGAR LANGSUNG TAMPIL TANPA CACHE JSDELIVR
-    return `${cleanDir}${fileName}`;
+    // PAKAI GITHUB RAW: LANGSUNG BISA DIBUKA DI LOKAL DAN PUBLIK TANPA DELAY CACHE
+    return `https://raw.githubusercontent.com/${username}/${repo}/main/${filePath}`;
 }
 
         document.getElementById('admin-add-form').addEventListener('submit', async function(e) {
