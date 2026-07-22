@@ -469,65 +469,9 @@
     </footer>
 
     <script>
-        // VARIABLE AVAL PORTOFOLIO UTAMA (TER-SYNC KE GITHUB)
-        const defaultPortfolios = [
-          {
-                    "id": 1784701109032,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784701104677_1.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784701026348,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784701023921_stempel_3.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784701004577,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784701002332_stempel_2.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784700991037,
-                    "category": "stempel",
-                    "title": "Galeri Stempel Otomatis",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784700988519_stempel_1.jpg",
-                    "desc": "Contoh stempel flash otomatis berbagai ukuran dan kombinasi warna."
-          },
-          {
-                    "id": 1784700210558,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784700208422_988d632e-fd61-4723-a067-1ac2beebdaee.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784700192353,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784700190281_63cb2cf3-7e67-4ddc-9ef3-561e737c4864.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784700175696,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784700173513_a891b110-b11f-4f9f-b385-4bcf280bad4b.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          },
-          {
-                    "id": 1784700156630,
-                    "category": "sablon-kaos",
-                    "title": "Galeri Sablon Kaos",
-                    "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784700154079_4b215817-eea5-454f-9b50-a09380cb7336.jpg",
-                    "desc": "Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey."
-          }
-];
+        // VARIABLE AVAL PORTOFOLIO UTAMA (TER-SYNC LANGSUNG KE GITHUB NATIVE)
+        const defaultPortfolios = [];
+
         const categoriesMap = {
             'sablon-kaos': { title: 'Galeri Sablon Kaos', desc: 'Kumpulan portofolio sablon kaos distro, kaos event, polo, dan jersey.' },
             'buku-yasin': { title: 'Galeri Buku Yasin & Tahlil', desc: 'Portofolio cetak Buku Yasin hardcover bludru, emas, dan beludru mewah.' },
@@ -540,10 +484,18 @@
             'produk-digital': { title: 'Katalog Produk Digital', desc: 'Template desain, ebook panduan, dan aset grafis siap pakai.' }
         };
 
-        // KUNCI REVISI 1: PUBLIK SELALU BACA defaultPortfolios, ADMIN PAKAI localStorage
-        const isAdminSession = localStorage.getItem('kamboja_admin_session') === 'active';
+        // KUNCI REVISI PERTAMA: Menggabungkan data server dan localStorage agar tidak bentrok
+        let portfolios = defaultPortfolios;
         let localData = localStorage.getItem('kamboja_p_data');
-        let portfolios = (isAdminSession && localData) ? JSON.parse(localData) : defaultPortfolios;
+        if (localData) {
+            try {
+                let parsed = JSON.parse(localData);
+                if (Array.isArray(parsed) && parsed.length > defaultPortfolios.length) {
+                    portfolios = parsed;
+                }
+            } catch(e){}
+        }
+
         let currentCategory = 'home';
 
         async function updateHtmlOnGithub() {
@@ -567,9 +519,9 @@
 
                 let htmlContent = decodeURIComponent(escape(atob(fileData.content)));
                 
-                // KUNCI REVISI 2: PENGGANTIAN TEXT AMAN SUPAYA BERHASIL SYNC
-                const jsonStr = JSON.stringify(portfolios, null, 4);
-                const targetRegex = /const defaultPortfolios\s*=\s*\[[\s\S]*?\];/;
+                // KUNCI REVISI KEDUA: Regex aman presisi tinggi untuk memperbarui isi defaultPortfolios
+                const jsonStr = JSON.stringify(portfolios, null, 10);
+                const targetRegex = /const\s+defaultPortfolios\s*=\s*\[[\s\S]*?\];/;
                 htmlContent = htmlContent.replace(targetRegex, `const defaultPortfolios = ${jsonStr};`);
 
                 const utf8Bytes = new TextEncoder().encode(htmlContent);
@@ -586,13 +538,13 @@
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        message: 'Update galeri portofolio',
+                        message: 'Update galeri portofolio otomatis',
                         content: encodedContent,
                         sha: sha
                     })
                 });
 
-                showToast('SUKSES! Galeri telah diperbarui secara publik.', 'success');
+                showToast('SUKSES! Galeri diperbarui & aktif publik.', 'success');
             } catch (err) {
                 console.error('Gagal Sync GitHub:', err);
                 showToast('Gagal menyinkronkan index.html ke GitHub', 'error');
@@ -702,7 +654,7 @@
             }
         }
 
-        // KUNCI REVISI 3: PAKAI JSDELIVR CDN SUPAYA PUBLIK BISA BUKA TANPA TERBLOKIR ISP
+        // KUNCI REVISI KETIGA: Format CDN jsDelivr Publik Instan Anti Blokir
         async function uploadFileToGithub(file) {
             const saved = localStorage.getItem('kamboja_gh_config');
             if(!saved) throw new Error("Isi Pengaturan GitHub terlebih dahulu!");
@@ -737,7 +689,7 @@
                 throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
             }
 
-            // MENGGUNAKAN JSDELIVR CDN UNTUK KECEPATAN & BEBAS BLOKIR ISP
+            // MENGGUNAKAN JSDELIVR CDN GLOBAL
             return `https://cdn.jsdelivr.net/gh/${username}/${repo}@main/${filePath}`;
         }
 
