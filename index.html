@@ -718,42 +718,42 @@
 
         // KUNCI REVISI 3: PAKAI JSDELIVR CDN SUPAYA PUBLIK BISA BUKA TANPA TERBLOKIR ISP
         async function uploadFileToGithub(file) {
-            const saved = localStorage.getItem('kamboja_gh_config');
-            if(!saved) throw new Error("Isi Pengaturan GitHub terlebih dahulu!");
-            const { token, username, repo, dir } = JSON.parse(saved);
+    const saved = localStorage.getItem('kamboja_gh_config');
+    if(!saved) throw new Error("Isi Pengaturan GitHub terlebih dahulu!");
+    const { token, username, repo, dir } = JSON.parse(saved);
 
-            const cleanDir = dir ? dir : '';
-            const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
-            const filePath = `${cleanDir}${fileName}`;
+    const cleanDir = dir ? dir : 'upload/';
+    const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+    const filePath = `${cleanDir}${fileName}`;
 
-            const base64Content = await new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result.split(',')[1]);
-                reader.onerror = error => reject(error);
-            });
+    const base64Content = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+    });
 
-            const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}`;
-            const response = await fetch(apiUrl, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `token ${token}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    message: `Upload foto: ${fileName}`,
-                    content: base64Content
-                })
-            });
+    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}`;
+    const response = await fetch(apiUrl, {
+        method: 'PUT',
+        headers: {
+            'Authorization': `token ${token}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            message: `Upload foto: ${fileName}`,
+            content: base64Content
+        })
+    });
 
-            if(!response.ok) {
-                const errData = await response.json();
-                throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
-            }
+    if(!response.ok) {
+        const errData = await response.json();
+        throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
+    }
 
-            // MENGGUNAKAN JSDELIVR CDN UNTUK KECEPATAN & BEBAS BLOKIR ISP
-            return `https://cdn.jsdelivr.net/gh/${username}/${repo}@main/${filePath}`;
-        }
+    // PAKAI RELATIVE PATH AGAR LANGSUNG TAMPIL TANPA CACHE JSDELIVR
+    return `${cleanDir}${fileName}`;
+}
 
         document.getElementById('admin-add-form').addEventListener('submit', async function(e) {
             e.preventDefault();
