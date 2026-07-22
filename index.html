@@ -638,6 +638,7 @@
             }
         }
 
+        // --- BAGIAN YANG DIPERBAIKI: MENGAMBIL DIRECT PUBLIC URL DARI GITHUB API ---
         async function uploadFileToGithub(file) {
             const saved = localStorage.getItem('kamboja_gh_config');
             if(!saved) throw new Error("Isi Pengaturan GitHub terlebih dahulu!");
@@ -672,7 +673,14 @@
                 throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
             }
 
-            return `${cleanDir}${fileName}`;
+            const resData = await response.json();
+
+            // Menggunakan download_url langsung agar gambar seketika tampil publik tanpa menunggu build
+            if (resData.content && resData.content.download_url) {
+                return resData.content.download_url;
+            }
+
+            return `https://raw.githubusercontent.com/${username}/${repo}/HEAD/${filePath}`;
         }
 
         document.getElementById('admin-add-form').addEventListener('submit', async function(e) {
