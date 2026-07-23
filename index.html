@@ -612,6 +612,21 @@
                     <label class="block text-gray-700 font-bold mb-1">Judul Kartu / Produk:</label>
                     <input type="text" id="edit-title" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" required>
                 </div>
+
+                <!-- OPSI GANTI/UPLOAD FOTO MOCKUP -->
+                <div class="p-3 bg-blue-50 rounded-lg border border-blue-100 space-y-2">
+                    <label class="block text-blue-900 font-bold flex items-center gap-1.5">
+                        <i class="fa-solid fa-image text-blue-600"></i> Ganti / Upload Foto Mockup:
+                    </label>
+                    <div>
+                        <label class="block text-gray-600 text-[11px] mb-1">Pilih File Baru (Upload ke GitHub):</label>
+                        <input type="file" id="edit-file" accept="image/*" class="w-full border border-gray-300 rounded p-1.5 text-xs bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-gray-600 text-[11px] mb-1">Atau Ubah URL / Path Gambar Saat Ini:</label>
+                        <textarea id="edit-image-url" rows="2" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500 font-mono text-[11px] bg-white" placeholder="upload/xxx.png atau https://..."></textarea>
+                    </div>
+                </div>
                 
                 <div>
                     <label class="block text-gray-700 font-bold mb-1">Deskripsi Ringkas:</label>
@@ -641,7 +656,7 @@
 
                 <div class="flex justify-end gap-2 pt-3 border-t">
                     <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded text-xs font-bold">Batal</button>
-                    <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs font-bold shadow flex items-center gap-1">
+                    <button type="submit" id="btn-save-edit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs font-bold shadow flex items-center gap-1">
                         <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
                     </button>
                 </div>
@@ -1629,6 +1644,8 @@
             document.getElementById('edit-price').value = item.price || '';
             document.getElementById('edit-payment-url').value = item.paymentUrl || '';
             document.getElementById('edit-full-desc').value = item.fullDesc || '';
+            document.getElementById('edit-image-url').value = item.image || '';
+            document.getElementById('edit-file').value = '';
 
             document.getElementById('admin-edit-modal').classList.remove('hidden');
         };
@@ -1639,23 +1656,45 @@
 
         window.saveEditModal = async function(e) {
             e.preventDefault();
+            const saveBtn = document.getElementById('btn-save-edit');
             const id = parseInt(document.getElementById('edit-id').value);
             const index = portfolios.findIndex(p => p.id === id);
 
             if (index !== -1) {
-                portfolios[index].itemTitle = document.getElementById('edit-title').value.trim();
-                portfolios[index].itemDesc = document.getElementById('edit-desc').value.trim();
-                portfolios[index].priceOld = document.getElementById('edit-price-old').value.trim();
-                portfolios[index].price = document.getElementById('edit-price').value.trim();
-                portfolios[index].paymentUrl = document.getElementById('edit-payment-url').value.trim();
-                portfolios[index].fullDesc = document.getElementById('edit-full-desc').value.trim();
+                try {
+                    saveBtn.disabled = true;
+                    saveBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin text-xs"></i> Menyimpan...`;
 
-                localStorage.setItem('kamboja_p_data', JSON.stringify(portfolios));
-                showToast('Kartu berhasil diperbarui!', 'success');
-                closeEditModal();
-                renderGallery(currentCategory);
+                    const fileInput = document.getElementById('edit-file');
+                    let imageUrl = document.getElementById('edit-image-url').value.trim();
 
-                await updateHtmlOnGithub();
+                    if (fileInput.files.length > 0) {
+                        showToast('Mengunggah foto mockup baru...', 'success');
+                        imageUrl = await uploadFileToGithub(fileInput.files[0]);
+                    }
+
+                    portfolios[index].itemTitle = document.getElementById('edit-title').value.trim();
+                    portfolios[index].itemDesc = document.getElementById('edit-desc').value.trim();
+                    portfolios[index].priceOld = document.getElementById('edit-price-old').value.trim();
+                    portfolios[index].price = document.getElementById('edit-price').value.trim();
+                    portfolios[index].paymentUrl = document.getElementById('edit-payment-url').value.trim();
+                    portfolios[index].fullDesc = document.getElementById('edit-full-desc').value.trim();
+                    portfolios[index].image = imageUrl;
+
+                    localStorage.setItem('kamboja_p_data', JSON.stringify(portfolios));
+                    showToast('Kartu berhasil diperbarui!', 'success');
+                    closeEditModal();
+                    renderGallery(currentCategory);
+
+                    await updateHtmlOnGithub();
+
+                } catch (error) {
+                    alert(`Error: ${error.message}`);
+                    showToast(`Gagal: ${error.message}`, 'error');
+                } finally {
+                    saveBtn.disabled = false;
+                    saveBtn.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan`;
+                }
             }
         };
 
@@ -1825,7 +1864,7 @@
                 logoutBtn.classList.add('hidden');
                 adminGlobalConfig.classList.add('hidden');
                 adminUploadPanel.classList.add('hidden');
-                adminTriggerBtn.classList.remove('flex');
+                adminTriggerBtn.remove('flex');
                 adminTriggerBtn.classList.add('hidden');
                 quickText.textContent = "Login Admin";
             }
