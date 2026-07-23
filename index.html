@@ -532,15 +532,6 @@
                     <p class="text-xs text-gray-500 font-medium">Belum ada foto portofolio tambahan di kategori ini.</p>
                 </div>
 
-                <div class="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p class="text-xs text-gray-600">
-                        Mau bikin produk persis seperti foto portofolio di atas? Tanya estimasi harga & diskon via WhatsApp:
-                    </p>
-                    <a id="subpage-wa-btn" href="https://wa.me/6289515881309" target="_blank" class="bg-[#030e2e] hover:bg-[#0a1b4d] text-white font-bold text-xs py-3 px-6 rounded-lg flex items-center gap-2 shadow-sm transition-colors whitespace-nowrap">
-                        <i class="fab fa-whatsapp text-emerald-400 text-sm"></i> Order Layanan Ini via WhatsApp
-                    </a>
-                </div>
-
             </div>
         </section>
 
@@ -601,6 +592,62 @@
         </section>
 
     </main>
+
+    <!-- MODAL EDIT PRODUK (MODE ADMIN) -->
+    <div id="admin-edit-modal" class="hidden fixed inset-0 bg-slate-900/60 z-[110] flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl max-w-lg w-full p-6 space-y-4 shadow-2xl overflow-y-auto max-h-[90vh]">
+            <div class="flex justify-between items-center border-b pb-3">
+                <h3 class="font-bold text-sm text-gray-900 flex items-center gap-2">
+                    <i class="fa-solid fa-pen-to-square text-blue-600"></i> Edit Informasi Kartu
+                </h3>
+                <button onclick="closeEditModal()" class="text-gray-400 hover:text-gray-600 text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <form id="edit-modal-form" onsubmit="saveEditModal(event)" class="space-y-3 text-xs font-medium">
+                <input type="hidden" id="edit-id">
+                
+                <div>
+                    <label class="block text-gray-700 font-bold mb-1">Judul Kartu / Produk:</label>
+                    <input type="text" id="edit-title" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" required>
+                </div>
+                
+                <div>
+                    <label class="block text-gray-700 font-bold mb-1">Deskripsi Ringkas:</label>
+                    <textarea id="edit-desc" rows="2" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500"></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-1">Harga Dicoret (Old):</label>
+                        <input type="text" id="edit-price-old" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" placeholder="79.000">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-bold mb-1">Harga Utama (Promo):</label>
+                        <input type="text" id="edit-price" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" placeholder="45.000">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-bold mb-1">URL Pembayaran / Buy Now Link:</label>
+                    <input type="url" id="edit-payment-url" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500" placeholder="https://mayar.link/xxx">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-bold mb-1">Deskripsi Lengkap (Halaman Detail):</label>
+                    <textarea id="edit-full-desc" rows="6" class="w-full border border-gray-300 rounded p-2 text-xs outline-none focus:border-blue-500"></textarea>
+                </div>
+
+                <div class="flex justify-end gap-2 pt-3 border-t">
+                    <button type="button" onclick="closeEditModal()" class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded text-xs font-bold">Batal</button>
+                    <button type="submit" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded text-xs font-bold shadow flex items-center gap-1">
+                        <i class="fa-solid fa-floppy-disk"></i> Simpan Perubahan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- TOMBOL PINTAS ADMIN -->
     <button id="admin-trigger-btn" onclick="toggleAdminMode()" class="hidden fixed bottom-4 right-4 bg-slate-900 text-white hover:bg-black text-[11px] font-bold px-3 py-2 rounded-full shadow-2xl z-[90] items-center gap-2 border border-slate-700">
@@ -685,7 +732,7 @@
         "desc": "Dokumentasi spanduk banner, neonbox, plang toko, stiker, dan baliho."
     },
     {
-        "id": 1784710101730,
+        "id": 178471001730,
         "category": "promosi-reklame",
         "title": "Galeri Promosi & Reklame",
         "image": "https://raw.githubusercontent.com/kambojaprinting-cmyk/kamboja-printing/main/upload/1784710099887_hpshop_0.jpg",
@@ -1473,9 +1520,6 @@
                     }
                 }
 
-                const waMsg = `Halo Kamboja Printing, saya berminat pesan / tanya-tanya seputar: *${info.title}*. Boleh info harga?`;
-                document.getElementById('subpage-wa-btn').href = `https://wa.me/6289515881309?text=${encodeURIComponent(waMsg)}`;
-
                 renderGallery(pageId);
             }
 
@@ -1483,7 +1527,7 @@
             checkAdminSession();
         };
 
-        // Buka Halaman Detail Produk Digital (Sesuai Gambar Lampiran)
+        // Buka Halaman Detail Produk Digital
         window.showDigitalProductDetail = function(id) {
             const item = portfolios.find(p => p.id === id);
             if (!item) return;
@@ -1492,8 +1536,8 @@
 
             document.getElementById('digital-detail-image').src = item.image;
             document.getElementById('digital-detail-title').textContent = item.itemTitle || item.title;
-            document.getElementById('digital-detail-price').textContent = item.price || 'IDR 49,000';
-            document.getElementById('digital-detail-price-old').textContent = item.priceOld || 'IDR 79,000';
+            document.getElementById('digital-detail-price').textContent = item.price ? (item.price.startsWith('IDR') ? item.price : 'IDR ' + item.price) : 'IDR 49,000';
+            document.getElementById('digital-detail-price-old').textContent = item.priceOld ? (item.priceOld.startsWith('IDR') ? item.priceOld : 'IDR ' + item.priceOld) : 'IDR 79,000';
             
             const fullDescContainer = document.getElementById('digital-detail-full-desc');
             fullDescContainer.innerText = item.fullDesc || item.itemDesc || item.desc || '';
@@ -1525,17 +1569,22 @@
                 filtered.forEach(p => {
                     const card = document.createElement('div');
                     
-                    // RENDER HASIL TAMPILAN SESUAI GAMBAR LAMPIRAN (ADA JUDUL & DESKRIPSI)
+                    // RENDER HASIL TAMPILAN KARTU
                     if (p.itemTitle || p.itemDesc || catKey === 'produk-digital') {
-                        card.className = "bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer";
+                        card.className = "bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer relative";
                         card.innerHTML = `
                             <div>
                                 <div class="aspect-square bg-gray-100 overflow-hidden relative border-b border-gray-100" onclick="navigateTo('digital-detail-${p.id}')">
                                     <img src="${p.image}" alt="${p.itemTitle || p.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';">
                                     ${isAdmin ? `
-                                        <button onclick="event.stopPropagation(); deletePhoto(${p.id});" class="absolute top-3 right-3 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105 z-10" title="Hapus Foto">
-                                            <i class="fa-solid fa-trash-can text-xs"></i>
-                                        </button>
+                                        <div class="absolute top-3 right-3 flex items-center gap-2 z-10">
+                                            <button onclick="event.stopPropagation(); openEditModal(${p.id});" class="bg-blue-600 hover:bg-blue-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105" title="Edit Kartu">
+                                                <i class="fa-solid fa-pencil text-xs"></i>
+                                            </button>
+                                            <button onclick="event.stopPropagation(); deletePhoto(${p.id});" class="bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105" title="Hapus Foto">
+                                                <i class="fa-solid fa-trash-can text-xs"></i>
+                                            </button>
+                                        </div>
                                     ` : ''}
                                 </div>
                                 <div class="p-5 space-y-2" onclick="navigateTo('digital-detail-${p.id}')">
@@ -1546,14 +1595,19 @@
                         `;
                     } else {
                         // TAMPILAN GALERI STANDARD (GAMBAR SAJA)
-                        card.className = "bg-white border border-gray-200 overflow-hidden shadow-sm rounded-lg flex flex-col justify-between group";
+                        card.className = "bg-white border border-gray-200 overflow-hidden shadow-sm rounded-lg flex flex-col justify-between group relative";
                         card.innerHTML = `
                             <div class="aspect-square bg-gray-100 overflow-hidden relative">
                                 <img src="${p.image}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x600/3c4043/ffffff?text=KAMBOJA+Printing';">
                                 ${isAdmin ? `
-                                    <button onclick="deletePhoto(${p.id})" class="absolute top-3 right-3 bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105 z-10" title="Hapus Foto">
-                                        <i class="fa-solid fa-trash-can text-xs"></i>
-                                    </button>
+                                    <div class="absolute top-3 right-3 flex items-center gap-2 z-10">
+                                        <button onclick="event.stopPropagation(); openEditModal(${p.id});" class="bg-blue-600 hover:bg-blue-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105" title="Edit Kartu">
+                                            <i class="fa-solid fa-pencil text-xs"></i>
+                                        </button>
+                                        <button onclick="event.stopPropagation(); deletePhoto(${p.id});" class="bg-red-600 hover:bg-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center shadow transition-transform hover:scale-105" title="Hapus Foto">
+                                            <i class="fa-solid fa-trash-can text-xs"></i>
+                                        </button>
+                                    </div>
                                 ` : ''}
                             </div>
                         `;
@@ -1562,6 +1616,48 @@
                 });
             }
         }
+
+        // FUNGSI EDIT KARTU (MODE ADMIN)
+        window.openEditModal = function(id) {
+            const item = portfolios.find(p => p.id === id);
+            if (!item) return;
+
+            document.getElementById('edit-id').value = item.id;
+            document.getElementById('edit-title').value = item.itemTitle || item.title || '';
+            document.getElementById('edit-desc').value = item.itemDesc || item.desc || '';
+            document.getElementById('edit-price-old').value = item.priceOld || '';
+            document.getElementById('edit-price').value = item.price || '';
+            document.getElementById('edit-payment-url').value = item.paymentUrl || '';
+            document.getElementById('edit-full-desc').value = item.fullDesc || '';
+
+            document.getElementById('admin-edit-modal').classList.remove('hidden');
+        };
+
+        window.closeEditModal = function() {
+            document.getElementById('admin-edit-modal').classList.add('hidden');
+        };
+
+        window.saveEditModal = async function(e) {
+            e.preventDefault();
+            const id = parseInt(document.getElementById('edit-id').value);
+            const index = portfolios.findIndex(p => p.id === id);
+
+            if (index !== -1) {
+                portfolios[index].itemTitle = document.getElementById('edit-title').value.trim();
+                portfolios[index].itemDesc = document.getElementById('edit-desc').value.trim();
+                portfolios[index].priceOld = document.getElementById('edit-price-old').value.trim();
+                portfolios[index].price = document.getElementById('edit-price').value.trim();
+                portfolios[index].paymentUrl = document.getElementById('edit-payment-url').value.trim();
+                portfolios[index].fullDesc = document.getElementById('edit-full-desc').value.trim();
+
+                localStorage.setItem('kamboja_p_data', JSON.stringify(portfolios));
+                showToast('Kartu berhasil diperbarui!', 'success');
+                closeEditModal();
+                renderGallery(currentCategory);
+
+                await updateHtmlOnGithub();
+            }
+        };
 
         function saveGithubSettings() {
             const token = document.getElementById('gh-token').value.trim();
@@ -1587,44 +1683,42 @@
             }
         }
 
-        // KUNCI REVISI 3: PAKAI JSDELIVR CDN SUPAYA PUBLIK BISA BUKA TANPA TERBLOKIR ISP
         async function uploadFileToGithub(file) {
-    const saved = localStorage.getItem('kamboja_gh_config');
-    if(!saved) throw new Error("Isi Pengaturan GitHub terlebih dahulu!");
-    const { token, username, repo, dir } = JSON.parse(saved);
+            const saved = localStorage.getItem('kamboja_gh_config');
+            if(!saved) throw new Error("Isi Pengaturan GitHub terlebih dahulu!");
+            const { token, username, repo, dir } = JSON.parse(saved);
 
-    const cleanDir = dir ? dir : 'upload/';
-    const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
-    const filePath = `${cleanDir}${fileName}`;
+            const cleanDir = dir ? dir : 'upload/';
+            const fileName = `${Date.now()}_${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
+            const filePath = `${cleanDir}${fileName}`;
 
-    const base64Content = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result.split(',')[1]);
-        reader.onerror = error => reject(error);
-    });
+            const base64Content = await new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = error => reject(error);
+            });
 
-    const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}`;
-    const response = await fetch(apiUrl, {
-        method: 'PUT',
-        headers: {
-            'Authorization': `token ${token}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            message: `Upload foto: ${fileName}`,
-            content: base64Content
-        })
-    });
+            const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${filePath}`;
+            const response = await fetch(apiUrl, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: `Upload foto: ${fileName}`,
+                    content: base64Content
+                })
+            });
 
-    if(!response.ok) {
-        const errData = await response.json();
-        throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
-    }
+            if(!response.ok) {
+                const errData = await response.json();
+                throw new Error(errData.message || 'Gagal mengunggah ke GitHub');
+            }
 
-    // PAKAI RELATIVE PATH AGAR LANGSUNG TAMPIL TANPA CACHE JSDELIVR
-    return `${cleanDir}${fileName}`;
-}
+            return `${cleanDir}${fileName}`;
+        }
 
         document.getElementById('admin-add-form').addEventListener('submit', async function(e) {
             e.preventDefault();
