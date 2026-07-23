@@ -1268,7 +1268,7 @@
         "id": 1784707501622,
         "category": "buku-yasin",
         "title": "Galeri Buku Yasin & Tahlil",
-        "image": "upload/1784707498793_2b7d9575-2aa3-4b4e-ac7e-01a2f48ce682.jpg",
+        "image": "upload/1784707501622_2b7d9575-2aa3-4b4e-ac7e-01a2f48ce682.jpg",
         "desc": "Portofolio cetak Buku Yasin hardcover bludru, emas, dan beludru mewah."
     },
     {
@@ -1586,6 +1586,9 @@
                     
                     // RENDER HASIL TAMPILAN KARTU
                     if (p.itemTitle || p.itemDesc || catKey === 'produk-digital') {
+                        const priceOldText = p.priceOld ? (p.priceOld.startsWith('IDR') ? p.priceOld : 'IDR ' + p.priceOld) : '';
+                        const priceText = p.price ? (p.price.startsWith('IDR') ? p.price : 'IDR ' + p.price) : '';
+
                         card.className = "bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group cursor-pointer relative";
                         card.innerHTML = `
                             <div>
@@ -1605,6 +1608,12 @@
                                 <div class="p-5 space-y-2" onclick="navigateTo('digital-detail-${p.id}')">
                                     <h3 class="font-bold text-base text-gray-900 group-hover:text-blue-600 transition-colors">${p.itemTitle || p.title}</h3>
                                     <p class="text-xs text-gray-500 leading-relaxed">${p.itemDesc || p.desc}</p>
+                                    ${(priceOldText || priceText) ? `
+                                        <div class="pt-2 flex items-center gap-2">
+                                            ${priceOldText ? `<span class="text-xs text-gray-400 line-through font-medium">${priceOldText}</span>` : ''}
+                                            ${priceText ? `<span class="text-sm font-bold text-emerald-600">${priceText}</span>` : ''}
+                                        </div>
+                                    ` : ''}
                                 </div>
                             </div>
                         `;
