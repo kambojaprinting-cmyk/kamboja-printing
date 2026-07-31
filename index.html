@@ -1597,8 +1597,8 @@
                 filtered.forEach(p => {
                     const card = document.createElement('div');
                     
-                    // RENDER HASIL TAMPILAN KARTU
-                    if (p.itemTitle || p.itemDesc || catKey === 'produk-digital') {
+                    // KHUSUS PRODUK DIGITAL: RENDER TAMPILAN KARTU LENGKAP (HARGA, DESKRIPSI, LINK)
+                    if (catKey === 'produk-digital') {
                         const priceOldText = p.priceOld ? (p.priceOld.startsWith('IDR') ? p.priceOld : 'IDR ' + p.priceOld) : '';
                         const priceText = p.price ? (p.price.startsWith('IDR') ? p.price : 'IDR ' + p.price) : '';
 
@@ -1631,7 +1631,7 @@
                             </div>
                         `;
                     } else {
-                        // TAMPILAN GALERI STANDARD (GAMBAR SAJA)
+                        // GALERI FISIK (SABLON KAOS, BUKU YASIN, DLL.): KHUSUS PHOTO SAJA
                         card.className = "bg-white border border-gray-200 overflow-hidden shadow-sm rounded-lg flex flex-col justify-between group relative";
                         card.innerHTML = `
                             <div class="aspect-square bg-gray-100 overflow-hidden relative">
